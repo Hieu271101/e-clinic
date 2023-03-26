@@ -1,22 +1,14 @@
+package edu.hanu.clinicManagementSystem.entities.admin;
+import edu.hanu.clinicManagementSystem.entities.BaseEntity;
+
 //this class contains the information of medicine category
 public class MedicineCategory extends BaseEntity {
-    private int id;
+    
     private String name;
 
-    public MedicineCategory(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+    
 
     public MedicineCategory() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

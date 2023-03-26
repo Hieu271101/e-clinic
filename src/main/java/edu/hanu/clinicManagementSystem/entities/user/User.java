@@ -5,6 +5,7 @@ import java.sql.Date;
 
 import edu.hanu.clinicManagementSystem.entities.BaseEntity;
 
+
 public class User extends BaseEntity {
 	
 	private String userName;

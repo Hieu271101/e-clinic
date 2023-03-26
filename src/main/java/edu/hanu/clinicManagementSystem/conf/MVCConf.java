@@ -14,13 +14,14 @@ public class MVCConf implements WebMvcConfigurer {
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/user/**").addResourceLocations("classpath:/user/");
 		registry.addResourceHandler("/admin/**").addResourceLocations("classpath:/admin/");
+		registry.addResourceHandler("/upload/**").addResourceLocations("file:" + "C:/upload/");
 	}
 	
 	@Bean
 	public ViewResolver viewResolver() {
-		InternalResourceViewResolver bean =new InternalResourceViewResolver();
+		InternalResourceViewResolver bean = new InternalResourceViewResolver();
 		bean.setViewClass(JstlView.class);
-		bean.setPrefix("WEB-INF/views/");
+		bean.setPrefix("/WEB-INF/views/");
 		bean.setSuffix(".jsp");
 		return bean;
 	}

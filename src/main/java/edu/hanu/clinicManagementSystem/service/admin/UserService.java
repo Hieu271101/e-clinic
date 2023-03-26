@@ -1,6 +1,7 @@
 //this class is UserService
 package edu.hanu.clinicManagementSystem.service.admin;
-@Service
-public class UserService extends BaseService    {
 
-}
+import org.springframework.stereotype.Service;
+
+import edu.hanu.clinicManagementSystem.service.BaseService;
+

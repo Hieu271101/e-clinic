@@ -1,6 +1,11 @@
+package edu.hanu.clinicManagementSystem.entities.user;
+import java.math.BigDecimal;
+
+import edu.hanu.clinicManagementSystem.entities.BaseEntity;
+
 // this is Order class of User
 public class UserOrder extends  BaseEntity{
-    private int id;
+   
     private int idUser;
     private int idMedicine;
     private int idService;
@@ -8,23 +13,6 @@ public class UserOrder extends  BaseEntity{
     private BigDecimal price;
     private String description;
 
-    public UserOrder(int id, int idUser, int idMedicine, int idService, BigDecimal quantity, BigDecimal price, String description) {
-        this.id = id;
-        this.idUser = idUser;
-        this.idMedicine = idMedicine;
-        this.idService = idService;
-        this.quantity = quantity;
-        this.price = price;
-        this.description = description;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getIdUser() {
         return idUser;

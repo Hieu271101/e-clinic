@@ -1,38 +1,87 @@
 package edu.hanu.clinicManagementSystem.entities;
 
-import java.sql.Date;
 
+
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class BaseEntity {
-	private int id;
-	private boolean status;
-	private Date created_dateDate;
-	private Date updated_dateDate;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Integer id;
 
-	 
-	 
-	public int getId() {
+	@Column(name = "status", nullable = true)
+	private Boolean status = Boolean.TRUE;
+
+	
+	
+	@Column(name="created_date", nullable=true)
+	private Date createdDate;
+	
+	@Column(name="updated_by", nullable=true)
+	private Integer updatedBy;
+	
+	@Column(name="updated_date", nullable=true)
+	private Date updatedDate;
+	@Column(name="created_by", nullable = true)
+	private Integer createdBy;
+	
+	
+	public Integer getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(Integer createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Integer getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(Integer updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedDate() {
+		return updatedDate;
+	}
+	
+
+	public void setUpdatedDate(Date updatedDate) {
+		this.updatedDate = updatedDate;
+	}
+
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public boolean isStatus() {
+
+	public Boolean getStatus() {
 		return status;
 	}
-	public void setStatus(boolean status) {
+
+	public void setStatus(Boolean status) {
 		this.status = status;
-	}
-	public Date getCreated_dateDate() {
-		return created_dateDate;
-	}
-	public void setCreated_dateDate(Date created_dateDate) {
-		this.created_dateDate = created_dateDate;
-	}
-	public Date getUpdated_dateDate() {
-		return updated_dateDate;
-	}
-	public void setUpdated_dateDate(Date updated_dateDate) {
-		this.updated_dateDate = updated_dateDate;
 	}
 	 
 	 

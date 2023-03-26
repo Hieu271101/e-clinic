@@ -1,6 +1,11 @@
+package edu.hanu.clinicManagementSystem.entities.admin;
+import java.math.BigDecimal;
+
+import edu.hanu.clinicManagementSystem.entities.BaseEntity;
+
 // this class is Service object which is used to get service object of clinic
 public class Service extends  BaseEntity{
-    private  int id;
+    
     private  String name;
 
     private  int category;
@@ -8,19 +13,9 @@ public class Service extends  BaseEntity{
 
     public Service() {
     }
-    public Service(int id, String name, int category, BigDecimal price) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.price = price;
-    }
+   
     // getter and setter
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
+  
     public String getName() {
         return name;
     }
