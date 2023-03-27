@@ -36,13 +36,12 @@ public class AdminManageMedicine {
 	@RequestMapping(value= {"/admin/medicine"}, method =RequestMethod.GET )
 	public String index(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response ) throws IOException{		
 	
-		List<Medicine> medicines = medicineService.findAllActive();
-		
+		List<Medicine> medicines = medicineService.findAllActive();		
 		model.addAttribute("medicines",medicines);
 		return "/admin/manageMedicine";
 	}
 	
-	@RequestMapping(value= {"/admin/addmedicine"}, method =RequestMethod.GET )
+	@RequestMapping(value= {"/admin/addmedicine"}, method = RequestMethod.GET )
 	public String addMedicine(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response ) throws IOException{		
 		model.addAttribute("newMedicine", new Medicine());
 		return "/admin/addMedicine";
@@ -57,8 +56,7 @@ public class AdminManageMedicine {
 //										  ,@RequestParam("productAvatar") MultipartFile productAvatar
 //										  ,@RequestParam("productPictures") MultipartFile[] productPictures
 	) throws Exception {
-		System.out.println(medicine.getName());
-		// thêm mới
+		
 		if (medicine.getId() == null || medicine.getId() <= 0) {
 			medicineService.add(medicine);
 		}
@@ -68,7 +66,7 @@ public class AdminManageMedicine {
 			medicineService.update(medicine);
 		}
 	
-		return "/admin/manageMedicine";
+		return "redirect:medicine";
 
 	}
 	@RequestMapping(value= {"/admin/addmedicine/{id}"}, method = RequestMethod.GET )

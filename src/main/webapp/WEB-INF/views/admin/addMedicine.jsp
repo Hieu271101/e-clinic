@@ -331,9 +331,11 @@
 								</div>
 							</div>
 							<div class="ibox-body">
-								<sf:form modelAttribute="newMedicine" method="post" >
+								<sf:form modelAttribute="newMedicine"  action="${base }/admin/addmedicine" method="post" >
 									<div class="form-group">
-										<%-- <label>Id</label> <sf:hidden path="id" class="form-control" placeholder="Điền Thông tin tại đây" /> --%>
+										<%-- <label>Id</label> 	--%>
+										<sf:hidden path="id" class="form-control" placeholder="Điền Thông tin tại đây" /> 
+									
 									</div>
 									<div class="form-group">
 										<label>Tên thuốc</label> <sf:input path="name" class="form-control" type="text"
