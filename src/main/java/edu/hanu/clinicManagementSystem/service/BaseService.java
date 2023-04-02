@@ -12,6 +12,7 @@ import javax.persistence.Table;
 //import javax.servlet.jsp.tagext.PageData;
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import edu.hanu.clinicManagementSystem.entities.BaseEntity;
@@ -59,6 +60,18 @@ public abstract class BaseService<E extends BaseEntity> {
 //		String sql="SELECT *FROM tbl_product where status=1";
 //		return super.executeNativeSql(sql);
 	}
+//	public Pageable<PagerData<E>> findAllActive(Pageable pageable) {
+//	    Table tbl = clazz().getAnnotation(Table.class);
+//	    List<E> medicines = entityManager.createNativeQuery("SELECT * FROM " + tbl.name() + " WHERE status=1", clazz()).getResultList();
+//	    List<PagerData<E>> pagerDataList = new ArrayList<>();
+//	    for (E medicine : medicines) {
+//	        PagerData<E> pagerData = new PagerData<E>();
+//	        pagerData.setData(medicine);
+//	        pagerDataList.add(pagerData);
+//	    }
+//	    return new PageImpl<>(pagerDataList, pageable, pagerDataList.size());
+//	}
+
 
 	public void delete(E entity) {
 		entityManager.remove(entity);

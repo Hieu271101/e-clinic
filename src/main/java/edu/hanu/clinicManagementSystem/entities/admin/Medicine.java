@@ -4,6 +4,7 @@ package edu.hanu.clinicManagementSystem.entities.admin;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -14,12 +15,16 @@ import edu.hanu.clinicManagementSystem.entities.BaseEntity;
 @Entity
 @Table(name = "medicine")
 public  class Medicine extends  BaseEntity{
-    
+	@Column(name = "name", nullable = true)
     private String name;
 //    private  int category;
+	@Column(name = "quantity", nullable = true)
     private BigDecimal quantity;
+	@Column(name = "descrption", nullable = true)
     private  String description;
+	@Column(name = "price", nullable = true)
     private  BigDecimal price;
+	@Column(name = "cost", nullable = true)
     private  BigDecimal cost;
     private  Date exp;
    

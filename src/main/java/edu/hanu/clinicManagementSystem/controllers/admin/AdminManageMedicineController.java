@@ -1,6 +1,6 @@
 package edu.hanu.clinicManagementSystem.controllers.admin;
 
-import java.io.IOException;
+import java.io.IOException; 
 import java.util.HashMap;
 
 import java.util.List;
@@ -10,25 +10,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 
 
 import edu.hanu.clinicManagementSystem.entities.admin.Medicine;
+import edu.hanu.clinicManagementSystem.service.PagerData;
 import edu.hanu.clinicManagementSystem.service.admin.MedicineService;
 
 @Controller
-public class AdminManageMedicine {
+public class AdminManageMedicineController {
 
 	@Autowired
 	private MedicineService medicineService;
@@ -102,5 +109,19 @@ public class AdminManageMedicine {
 		jsonResult.put("statusMessage", "Cảm ơn bạn "  + ", Chúng tôi sẽ liên hệ sớm nhất!");
 		return ResponseEntity.ok(jsonResult);
 	}
+//	@GetMapping("/data")
+//	@ResponseBody
+//	public List<PagerData<Medicine>> getData(
+//	        @RequestParam(name = "page", defaultValue = "0") int page,
+//	        @RequestParam(name = "size", defaultValue = "10") int size) {
+//	    Pageable pageable = PageRequest.of(page, size);
+////	    Page<Data> dataPage = dataRepository.findAll(pageable);
+////	    PagerData<Medicine> medicines = (PagerData<Medicine>) medicineService.findAllActive();		
+//	    Page<PagerData<Medicine>> medicines = medicineService.findAllActive();
+////	    return dataPage.getContent();
+//	    return medicines.getContent();
+//	}
 	
+	
+
 }
