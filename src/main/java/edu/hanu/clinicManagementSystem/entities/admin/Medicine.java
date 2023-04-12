@@ -20,7 +20,7 @@ public  class Medicine extends  BaseEntity{
 //    private  int category;
 	@Column(name = "quantity", nullable = true)
     private BigDecimal quantity;
-	@Column(name = "descrption", nullable = true)
+	@Column(name = "description", nullable = true)
     private  String description;
 	@Column(name = "price", nullable = true)
     private  BigDecimal price;

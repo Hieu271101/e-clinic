@@ -398,7 +398,7 @@
                                     <th>Số điện thoại</th>
                                    <th>Giới tính</th>
                                    <th>Ngày sinh</th>
-                                   <th>Ảnh</th>
+                                  
                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
@@ -410,7 +410,7 @@
                                     <th>Số điện thoại</th>
                                    <th>Giới tính</th>
                                    <th>Ngày sinh</th>
-                                   <th>Ảnh</th>
+                                  
                                    <th>Chức năng</th>
                                 </tr>
                             </tfoot>
@@ -425,21 +425,29 @@
                                     <td>${user.phone }</td>
                                     <td>${user.gender }</td>
                                     <td>${user.dob }</td>
-                                    <td>${user.img }</td>
+                                 
                                     <td>
-											<div class="row">		
-												 <div class="col-sm-2">
+											<div class="row">
+											<div class="col-sm-2">
+												<a
+													class="btn btn-dark"
+													href="${base }/admin/user/${user.id }"
+													id="show-emp" 
+													> Chi tiết
+												</a>
+											</div>		
+											<div class="col-sm-2">
 												<a
 													class="btn btn-info"
-													href="${base }/admin/addmedicine/${user.id }"
+													href="${base }/admin/user/edit/${user.id }"
 													id="show-emp" 
 													> Sửa
 												</a>
-												</div>
-												<div class="col-sm-2">
+											</div>
+											<div class="col-sm-2">
 													<a  class="btn btn-warning"  role="button"
 													onclick="DeleteProduct(${user.id });">Xóa</a>
-												</div>
+											</div>
 												
 											</div>
 										</td>

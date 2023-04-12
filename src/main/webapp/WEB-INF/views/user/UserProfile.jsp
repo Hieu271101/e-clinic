@@ -91,7 +91,7 @@
                                                 <img src="./assets/img/users/u3.jpg" />
                                             </div>
                                             <div class="media-body">
-                                                <div class="font-strong"></div>Frank Cruz<small class="text-muted float-right">18 mins</small>
+                                                <div class="font-strong"></div>${user.name }<small class="text-muted float-right">18 mins</small>
                                                 <div class="font-13">Lorem Ipsum is simply.</div>
                                             </div>
                                         </div>
@@ -372,35 +372,31 @@
         <!-- END SIDEBAR-->
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
-            <div class="page-heading">
-                <h1 class="page-title">Profile</h1>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="index.html"><i class="la la-home font-20"></i></a>
-                    </li>
-                    <li class="breadcrumb-item">Profile</li>
-                </ol>
-            </div>
+            
             <div class="page-content fade-in-up">
                 <div class="row">
                     <div class="col-lg-3 col-md-4">
                         <div class="ibox">
                             <div class="ibox-body text-center">
                                 <div class="m-t-20">
-                                    <img class="img-circle" src="./assets/img/users/u3.jpg" />
+                                    <img class="img-circle"  src="${base }/upload/${user.img}" />
                                 </div>
-                                <h5 class="font-strong m-b-10 m-t-10">Frank Cruz</h5>
-                                <div class="m-b-20 text-muted">Web Developer</div>
-                                <div class="profile-social m-b-20">
-                                    <a href="javascript:;"><i class="fa fa-twitter"></i></a>
-                                    <a href="javascript:;"><i class="fa fa-facebook"></i></a>
-                                    <a href="javascript:;"><i class="fa fa-pinterest"></i></a>
-                                    <a href="javascript:;"><i class="fa fa-dribbble"></i></a>
-                                </div>
+                                <br>
+                                <button class="btn btn-info btn-rounded m-b-5"><i class="fa fa-plus"></i>  Sửa</button>
+                                <h5 class="font-strong m-b-10 m-t-10">${user.name }</h5>
+                                <div class="m-b-20 text-muted">${user.username }</div>
+                                
                                 <div>
-                                    <button class="btn btn-info btn-rounded m-b-5"><i class="fa fa-plus"></i> Follow</button>
-                                    <button class="btn btn-default btn-rounded m-b-5">Message</button>
+                                    <button class="btn btn-success btn-rounded m-b-5"><i class="fa fa-plus"></i> ${user.phone }</button>
+                                    <button class="btn btn-default btn-rounded m-b-5">${user.email }</button>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="ibox">
+                            <div class="ibox-body">
+                            <p class="text-left">Giới tính: ${user.gender }</p>
+                                <p class="text-left">Ngày sinh: ${user.dob }</p>
+                                <p class="text-left">Địa chỉ: ${user.address }</p>
                             </div>
                         </div>
                         <div class="ibox">
@@ -408,18 +404,18 @@
                                 <div class="row text-center m-b-20">
                                     <div class="col-4">
                                         <div class="font-24 profile-stat-count">140</div>
-                                        <div class="text-muted">Followers</div>
+                                        <div class="text-muted">Số lần đến</div>
                                     </div>
                                     <div class="col-4">
                                         <div class="font-24 profile-stat-count">$780</div>
-                                        <div class="text-muted">Sales</div>
+                                        <div class="text-muted">Ngày đầu đến</div>
                                     </div>
                                     <div class="col-4">
                                         <div class="font-24 profile-stat-count">15</div>
-                                        <div class="text-muted">Projects</div>
+                                        <div class="text-muted">Lần gần nhất</div>
                                     </div>
                                 </div>
-                                <p class="text-center">Lorem Ipsum is simply dummy text of the printing and industry. Lorem Ipsum has been</p>
+                               
                             </div>
                         </div>
                     </div>
@@ -439,6 +435,75 @@
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="tab-1">
+                                    <h4 class="text-info m-b-20 m-t-20"><i class="fa fa-shopping-basket"></i> Lịch sử</h4>
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order ID</th>
+                                                    <th>Customer</th>
+                                                    <th>Amount</th>
+                                                    <th>Status</th>
+                                                    <th width="91px">Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td>@Jack</td>
+                                                    <td>$564.00</td>
+                                                    <td>
+                                                        <span class="badge badge-success">Shipped</span>
+                                                    </td>
+                                                    <td>10/07/2017</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>@Amalia</td>
+                                                    <td>$220.60</td>
+                                                    <td>
+                                                        <span class="badge badge-success">Shipped</span>
+                                                    </td>
+                                                    <td>10/07/2017</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>13</td>
+                                                    <td>@Emma</td>
+                                                    <td>$760.00</td>
+                                                    <td>
+                                                        <span class="badge badge-default">Pending</span>
+                                                    </td>
+                                                    <td>10/07/2017</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>14</td>
+                                                    <td>@James</td>
+                                                    <td>$87.60</td>
+                                                    <td>
+                                                        <span class="badge badge-warning">Expired</span>
+                                                    </td>
+                                                    <td>10/07/2017</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>15</td>
+                                                    <td>@Ava</td>
+                                                    <td>$430.50</td>
+                                                    <td>
+                                                        <span class="badge badge-default">Pending</span>
+                                                    </td>
+                                                    <td>10/07/2017</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>16</td>
+                                                    <td>@Noah</td>
+                                                    <td>$64.00</td>
+                                                    <td>
+                                                        <span class="badge badge-success">Shipped</span>
+                                                    </td>
+                                                    <td>10/07/2017</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    
                                         <div class="row">
                                             <div class="col-md-6" style="border-right: 1px solid #eee;">
                                                 <h5 class="text-info m-b-20 m-t-10"><i class="fa fa-bar-chart"></i> Month Statistics</h5>
@@ -853,4 +918,9 @@
     <!-- PAGE LEVEL SCRIPTS-->
     <script src="${base}/admin/assets/js/scripts/profile-demo.js" type="text/javascript"></script>
 </body>
+<style>
+	button {
+		cursor: pointer;
+	}
+</style>
 </html>

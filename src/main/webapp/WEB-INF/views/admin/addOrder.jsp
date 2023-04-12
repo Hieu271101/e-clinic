@@ -10,24 +10,21 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width initial-scale=1.0">
-<title>Admincast | DataTables</title>
+<title>Admincast bootstrap 4 &amp; angular 5 admin template,
+	Шаблон админки | Form</title>
 <!-- GLOBAL MAINLY STYLES-->
-<link
-	href="${base}/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css"
+<link href="${base}/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet" />
-<link
-	href="${base}/admin/assets/vendors/font-awesome/css/font-awesome.min.css"
+<link href="${base}/admin/assets/vendors/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" />
-<link
-	href="${base}/admin/assets/vendors/themify-icons/css/themify-icons.css"
+<link href="${base}/admin/assets/vendors/themify-icons/css/themify-icons.css"
+	rel="stylesheet" />
+<link href="${base}/admin/assets/vendors/summernote/dist/summernote.css"
 	rel="stylesheet" />
 <!-- PLUGINS STYLES-->
-<link href="${base}/admin/assets/vendors/DataTables/datatables.min.css"
-	rel="stylesheet" />
 <!-- THEME STYLES-->
 <link href="${base}/admin/assets/css/main.min.css" rel="stylesheet" />
 <!-- PAGE LEVEL STYLES-->
-<script type="text/javascript" src="${base }/admin/js/jquery.min.js"></script>
 </head>
 
 <body class="fixed-navbar">
@@ -239,23 +236,23 @@
 							<li><a href="lists.html">List</a></li>
 							<li><a href="cards.html">Card</a></li>
 						</ul></li>
-					<li><a href="javascript:;"><i
+					<li class="active"><a href="javascript:;"><i
 							class="sidebar-item-icon fa fa-edit"></i> <span class="nav-label">Forms</span><i
 							class="fa fa-angle-left arrow"></i></a>
-						<ul class="nav-2-level collapse">
-							<li><a href="form_basic.html">Basic Forms</a></li>
+						<ul class="nav-2-level collapse in">
+							<li><a class="active" href="form_basic.html">Basic Forms</a>
+							</li>
 							<li><a href="form_advanced.html">Advanced Plugins</a></li>
 							<li><a href="form_masks.html">Form input masks</a></li>
 							<li><a href="form_validation.html">Form Validation</a></li>
 							<li><a href="text_editors.html">Text Editors</a></li>
 						</ul></li>
-					<li class="active"><a href="javascript:;"><i
+					<li><a href="javascript:;"><i
 							class="sidebar-item-icon fa fa-table"></i> <span
 							class="nav-label">Tables</span><i class="fa fa-angle-left arrow"></i></a>
-						<ul class="nav-2-level collapse in">
+						<ul class="nav-2-level collapse">
 							<li><a href="table_basic.html">Basic Tables</a></li>
-							<li><a class="active" href="datatables.html">Datatables</a>
-							</li>
+							<li><a href="datatables.html">Datatables</a></li>
 						</ul></li>
 					<li><a href="javascript:;"><i
 							class="sidebar-item-icon fa fa-bar-chart"></i> <span
@@ -319,92 +316,69 @@
 		<!-- END SIDEBAR-->
 		<div class="content-wrapper">
 			<!-- START PAGE CONTENT-->
-			<div class="page-heading">
-				<h1 class="page-title">DataTables</h1>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html"><i
-							class="la la-home font-20"></i></a></li>
-					<li class="breadcrumb-item">DataTables</li>
-				</ol>
-			</div>
+			
 			<div class="page-content fade-in-up">
-				<div class="ibox">
-					<div class="ibox-head">
-						<div class="ibox-title">Data Table</div>
+				<div class="row"></div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="ibox">
+							<div class="ibox-head">
+								<div class="ibox-title">Thêm thuốc</div>
+								<div class="ibox-tools">
+									<a class="ibox-collapse"><i class="fa fa-minus"></i></a> <a
+										class="fullscreen-link"><i class="fa fa-expand"></i></a>
+								</div>
+							</div>
+							<div class="ibox-body">
+								<sf:form modelAttribute="newMedicine"  action="${base }/admin/addmedicine" method="post" >
+									<div class="form-group">
+										<%-- <label>Id</label> 	--%>
+										<sf:hidden path="id" class="form-control" placeholder="Điền Thông tin tại đây" /> 
+									
+									</div>
+									<div class="form-group">
+										<label>Tên thuốc</label> <sf:input path="name" class="form-control" type="text"
+											placeholder="Điền tên thuốc tại đây" />
+									</div>
+									<div class="form-group">
+										<label>Số lượng</label> <sf:input path="quantity" class="form-control" type="number"
+											placeholder="Nhập số lượng thuốc" />
+									</div>
+									<div class="form-group">
+										<label>Giá bán</label> <sf:input path="price" class="form-control" type="number"
+											placeholder="Nhập số tiền bán" />
+									</div>
+									<div class="form-group">
+										<label>Giá vốn</label> <sf:input path="cost" class="form-control" type="number"
+											placeholder="Nhập số tiền vốn" />
+									</div>
+									<div class="form-group">
+										<label>Hạn sử dụng( tháng/ngày/năm)</label> <sf:input path="exp"
+											class="form-control" type="date" id="date" name="date"
+											value="2023-03-26"/>
+									</div>
+									<div class="form-group">
+										<label>Nhà cung cấp</label> <sf:input class="form-control" path="supplier"
+											type="text" placeholder="Điền Thông tin tại đây"/>
+									</div>
+									<div class="form-group">
+										<label>Mô tả</label>
+										<sf:textarea class="form-control" path="description" id="summernote" name="message" 
+											rows="3"></sf:textarea>
+									</div>
+
+									<div class="form-group row">
+										<div class="col-sm-12 ml-sm-auto">
+											<button class="btn btn-info" type="submit">Submit</button>
+										</div>
+									</div>
+
+								</sf:form>
+							</div>
+						</div>
 					</div>
-					<div class="ibox-body">
-						<table class="table table-striped table-bordered table-hover"
-							id="example-table" cellspacing="0" width="100%">
-							<thead>
-								<tr>
-									<th>Id</th>
-									<th>Tên sản phẩm</th>
-									<th>Số lượng</th>
-									<th>Giá bán</th>
-									<th>Giá gốc</th>
-									<th>Hạn sử dụng</th>
 
-									<th>Nhà cung cấp</th>
-									<th>Mô tả</th>
-									<th>Chức năng</th>
-								</tr>
-							</thead>
-							<tfoot>
-								<tr>
-									<th>Id</th>
-									<th>Tên sản phẩm</th>
-									<th>Số lượng</th>
-									<th>Giá bán</th>
-									<th>Giá gốc</th>
-									<th>Hạn sử dụng</th>
-
-									<th>Nhà cung cấp</th>
-									<th>Mô tả</th>
-									<th>Chức năng</th>
-								</tr>
-							</tfoot>
-							<tbody>
-								<c:forEach var="medicine" items="${medicines }">
-									<tr>
-										<td>${medicine.id }</td>
-										<td>${medicine.name }</td>
-										<td>${medicine.quantity }</td>
-										<td>${medicine.price }</td>
-										<td>${medicine.cost }</td>
-										<td>${medicine.exp }</td>
-										<td>${medicine.supplier }</td>
-										<td>${medicine.description }</td>
-										<td>
-											<div class="row">
-												
-												 <div class="col-sm-2">
-												<a
-													class="btn btn-info"
-													href="${base }/admin/addmedicine/${medicine.id}"
-													id="show-emp" 
-													> Sửa
-												</a>
-												 </div>
-												<div class="col-sm-2">
-													<a  class="btn btn-warning"  role="button"
-													onclick="DeleteProduct(${medicine.id});">Xóa</a>
-												</div>
-												
-											</div>
-										</td>
-
-
-
-									</tr>
-								</c:forEach>
-
-
-
-
-
-							</tbody>
-						</table>
-					</div>
 				</div>
 
 			</div>
@@ -570,11 +544,22 @@
 	<!-- END THEME CONFIG PANEL-->
 	<!-- BEGIN PAGA BACKDROPS-->
 	<div class="sidenav-backdrop backdrop"></div>
-	<div class="preloader-backdrop">
+	<!-- <div class="preloader-backdrop">
 		<div class="page-preloader">Loading</div>
-	</div>
+	</div> -->
 	<!-- END PAGA BACKDROPS-->
 	<!-- CORE PLUGINS-->
+	<script
+		src="${base }/admin/assets/vendors/summernote/dist/summernote.min.js"
+		type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#summernote').summernote();
+			$('.note-popover').css({
+				'display' : 'none'
+			});
+		})
+	</script>
 	<script src="./assets/vendors/jquery/dist/jquery.min.js"
 		type="text/javascript"></script>
 	<script src="./assets/vendors/popper.js/dist/umd/popper.min.js"
@@ -587,72 +572,8 @@
 		src="./assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js"
 		type="text/javascript"></script>
 	<!-- PAGE LEVEL PLUGINS-->
-	<script src="./assets/vendors/DataTables/datatables.min.js"
-		type="text/javascript"></script>
 	<!-- CORE SCRIPTS-->
 	<script src="assets/js/app.min.js" type="text/javascript"></script>
 	<!-- PAGE LEVEL SCRIPTS-->
-	<script type="text/javascript">
-	function DeleteProduct(productId) {
-		
-		//with upload file
-		// Get form
-	    //var form = $('#fileUploadForm')[0];
-	    //var data = new FormData(form);
-		
-		// javascript object.
-		// data la du lieu ma day len action cua controller
-		let data = {
-			id:productId,
-		};
-		
-		// $ === jQuery
-		// json == javascript object
-		if (confirm("Bạn có chắc chắn muốn xoác không?")) {
-		  // user clicked OK
-			jQuery.ajax({
-				url : "/admin/ajax/delete",
-				type : "post",
-				contentType : "application/json",
-				data : JSON.stringify(data),
-				
-				
-				dataType : "json", // kieu du lieu tra ve tu controller la json
-				success : function(jsonResult) {
-					
-					alert("Đã xóa thành công!!!!! ");
-					location.reload();
-				},
-				error : function(jqXhr, textStatus, errorMessage) { // error callback 
-					alert("error");
-				}
-			});
-		} else {
-		  // user clicked Cancel
-		  // do something else here
-		}
-		
-	}	
-	
-        $(function() {
-            $('#example-table').DataTable({
-                pageLength: 10,
-                paging: true,
-                
-             /*    "ajax": '/data/medicine',   */
-               /*  "searching": true,
-                "ordering": true */
-               /*  "ajax": '${base}/admin/assets/demo/data/table_data.json', */
-                /*"columns": [
-                    { "data": "name" },
-                    { "data": "office" },
-                    { "data": "extn" },
-                    { "data": "start_date" },
-                    { "data": "salary" }
-                ]*/
-            });
-        }
-        )
-    </script>
 </body>
 </html>

@@ -316,14 +316,7 @@
 		<!-- END SIDEBAR-->
 		<div class="content-wrapper">
 			<!-- START PAGE CONTENT-->
-			<div class="page-heading">
-
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html"><i
-							class="la la-home font-20"></i></a></li>
-					<li class="breadcrumb-item">Form Validation</li>
-				</ol>
-			</div>
+			
 			<div class="page-content fade-in-up">
 
 				<div class="ibox">
@@ -334,43 +327,45 @@
 					<div class="ibox-body">
 						<sf:form modelAttribute="newUser" action="${base }/admin/addUser"
 							method="post" class="form-horizontal" id="form-sample-1"
-							novalidate="novalidate">
+							novalidate="novalidate"
+							enctype="multipart/form-data"
+							>
 							<div class="form-group row">
 								<label class="col-sm-2 col-form-label">Tài khoản</label>
 								<div class="col-sm-10">
-									<sf:input class="form-control" type="text" name="username"
-										path="username" />
+									<sf:input class="form-control" type="text" id="username" name="username"
+										path="username" placeholder="Nhập tài khoản" />
 								</div>
 							</div>
 							<div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Mật khẩu</label>
                                 <div class="col-sm-10">
-                                    <sf:input class="form-control" id="password" type="password" name="password" placeholder="password" path="password"/>
+                                    <sf:input class="form-control" id="password" type="password" name="password" placeholder="Nhập mật khẩu" path="password"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                            		 <label class="col-sm-2 col-form-label">Nhập lại mật khẩu</label>
                                 <div class="col-sm-10 ml-sm-auto">
                                 	
-                                    <input class="form-control" type="password" name="password_confirmation" placeholder="confirm password">
+                                    <input class="form-control" type="password" name="password_confirmation" placeholder="Xác nhận mật khẩu">
                                 </div>
                             </div>
                              <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Họ và tên</label>
                                 <div class="col-sm-10">
-                                    <sf:input class="form-control" type="text" name="name" path="name"/>
+                                    <sf:input class="form-control" type="text" name="name" path="name" placeholder="Nhập họ và tên"/>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    <sf:input class="form-control" type="text" name="email" path="email"/>
+                                    <sf:input class="form-control" type="text" name="email" path="email" placeholder="Nhập email"/>
                                 </div>
                             </div>
                              <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Số điện thoại</label>
                                 <div class="col-sm-10">
-                                    <sf:input class="form-control" id="ex-phone2" type="text" path="phone"/>
+                                    <sf:input class="form-control" id="ex-phone2" type="text" path="phone" placeholder="Nhập số điện thoại"/>
                                     <span class="help-block">Data format +84 000 000 000</span>
                                 </div>
                             </div>
@@ -378,7 +373,7 @@
                                         <label class="col-sm-2 col-form-label">Giới tính</label>
                                         <div class="col-sm-10">
                                         <sf:select class="form-control" path="gender">
-                                            <sf:option value="Name">Nam</sf:option>
+                                            <sf:option value="Nam">Nam</sf:option>
                                             <sf:option value="Nữ">Nữ</sf:option>
                                             <sf:option value="Chuyển giới Nam">Chuyển giới Nam</sf:option>
                                             <sf:option value="Chuyển giới Nữ">Chuyển giới Nữ</sf:option>
@@ -397,7 +392,7 @@
                              <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Địa chỉ</label>
                                 <div class="col-sm-10">
-                                    <sf:input class="form-control" type="text" name="address" path="address"/>
+                                    <sf:input class="form-control" type="text" name="address" path="address" placeholder="Nhập địa chỉ"/>
                                 </div>
                             </div>
                            <div class="form-group row">
@@ -413,19 +408,19 @@
                              <div class="form-group row">
                             		 <label class="col-sm-2 col-form-label">Avatar</label>
                            			 <div class="col-sm-10">
-									 <sf:input id="fileProductAvatar" name="img" path="img" type="file" class="form-control"/>
+									 <input id="fileProductAvatar"  name="productAvatar"  type="file" class="form-control">
 								<br>
-								<div class="form-group">
+								<%-- <div class="form-group">
 
 									<img alt="" style="width: 100px; height: 100px"
-										src="${base }/upload/${newProduct.avatar}">
-								</div>
+										src="${base }/upload/${newUser.img}">
+								</div> --%>
 							</div>
 							</div>
                             
                              <div class="form-group row">
                                 <div class="col-sm-12 ml-sm-auto">
-                                    <button class="btn btn-info" type="submit">Submit</button>
+                                    <button class="btn btn-info" type="submit">Lưu</button>
                                 </div>
                             </div>
 						</sf:form>
@@ -627,6 +622,10 @@
 	<script type="text/javascript">
 		$("#form-sample-1").validate({
 			rules : {
+				username : {
+					
+					required : !0
+				},
 				name : {
 					minlength : 2,
 					required : !0

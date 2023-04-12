@@ -21,6 +21,7 @@
 	rel="stylesheet" />
 <link href="${base}/admin/assets/vendors/summernote/dist/summernote.css"
 	rel="stylesheet" />
+
 <!-- PLUGINS STYLES-->
 <!-- THEME STYLES-->
 <link href="${base}/admin/assets/css/main.min.css" rel="stylesheet" />
@@ -331,18 +332,18 @@
 								</div>
 							</div>
 							<div class="ibox-body">
-								<sf:form modelAttribute="newMedicine"  action="${base }/admin/addmedicine" method="post" >
+								<sf:form modelAttribute="newMedicine"  action="${base }/admin/addmedicine" method="post" id="form-sample-1">
 									<div class="form-group">
 										<%-- <label>Id</label> 	--%>
 										<sf:hidden path="id" class="form-control" placeholder="Điền Thông tin tại đây" /> 
 									
 									</div>
 									<div class="form-group">
-										<label>Tên thuốc</label> <sf:input path="name" class="form-control" type="text"
+										<label>Tên thuốc</label> <sf:input path="name" name="name" id="name" class="form-control" type="text"
 											placeholder="Điền tên thuốc tại đây" />
 									</div>
 									<div class="form-group">
-										<label>Số lượng</label> <sf:input path="quantity" class="form-control" type="number"
+										<label>Số lượng</label> <sf:input path="quantity" id="quantity" class="form-control" type="number"
 											placeholder="Nhập số lượng thuốc" />
 									</div>
 									<div class="form-group">
@@ -549,7 +550,10 @@
 	</div> -->
 	<!-- END PAGA BACKDROPS-->
 	<!-- CORE PLUGINS-->
-	<script
+	
+	
+	
+	<%-- <script
 		src="${base }/admin/assets/vendors/summernote/dist/summernote.min.js"
 		type="text/javascript"></script>
 	<script type="text/javascript">
@@ -559,21 +563,83 @@
 				'display' : 'none'
 			});
 		})
-	</script>
-	<script src="./assets/vendors/jquery/dist/jquery.min.js"
-		type="text/javascript"></script>
-	<script src="./assets/vendors/popper.js/dist/umd/popper.min.js"
-		type="text/javascript"></script>
-	<script src="./assets/vendors/bootstrap/dist/js/bootstrap.min.js"
-		type="text/javascript"></script>
-	<script src="./assets/vendors/metisMenu/dist/metisMenu.min.js"
+	</script> --%>
+	<%-- <script src="${base}/admin/assets/vendors/jquery/dist/jquery.min.js"
 		type="text/javascript"></script>
 	<script
-		src="./assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js"
+		src="${base}/admin/assets/vendors/popper.js/dist/umd/popper.min.js"
+		type="text/javascript"></script>
+	<script
+		src="${base}/admin/assets/vendors/bootstrap/dist/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script
+		src="${base}/admin/assets/vendors/metisMenu/dist/metisMenu.min.js"
+		type="text/javascript"></script>
+	<script
+		src="${base}/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js"
+		type="text/javascript"></script>
+	<script
+		src="${base}/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js"
+		type="text/javascript"></script>
+	<script src="${base}/admin/assets/js/app.min.js" type="text/javascript"></script>
+	<script
+		src="${base}/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js"
+		type="text/javascript"></script> --%>
+	
+	
+	<script src="${base}/admin/assets/vendors/jquery/dist/jquery.min.js"
+		type="text/javascript"></script>
+	<script src="${base}/admin/assets/vendors/popper.js/dist/umd/popper.min.js"
+		type="text/javascript"></script>
+	<script src="${base}/admin/assets/vendors/bootstrap/dist/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script src="${base}/admin/assets/vendors/metisMenu/dist/metisMenu.min.js"
+		type="text/javascript"></script>
+	<script
+		src="${base}/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js"
 		type="text/javascript"></script>
 	<!-- PAGE LEVEL PLUGINS-->
+	<script
+		src="${base}/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js"
+		type="text/javascript"></script>
 	<!-- CORE SCRIPTS-->
-	<script src="assets/js/app.min.js" type="text/javascript"></script>
+	<script src="${base}/admin/assets/js/app.min.js" type="text/javascript"></script>
 	<!-- PAGE LEVEL SCRIPTS-->
+	
+	<script
+		src="${base}/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js"
+		type="text/javascript"></script>
+	<script type="text/javascript">
+		$("#form-sample-1").validate({
+			rules : {
+				
+				name : {
+					minlength : 2,
+					required : !0
+				},
+				quantity : {
+					required : !0,
+					 min: 0
+				},
+				price : {
+					required : !0,
+					 min: 0
+				},
+				cost : {
+					required : !0,
+					 min: 0
+				}
+				
+				
+			},
+			errorClass : "help-block error",
+			highlight : function(e) {
+				$(e).closest(".form-group.row").addClass("has-error")
+			},
+			unhighlight : function(e) {
+				$(e).closest(".form-group.row").removeClass("has-error")
+			},
+		});
+	</script>
 </body>
 </html>
