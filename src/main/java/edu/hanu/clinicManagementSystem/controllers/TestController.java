@@ -27,4 +27,10 @@ public class TestController extends BaseController{
 		model.addAttribute("medicines",medicines);
 		return "/admin/test";
 	}
+	@RequestMapping(value= {"/header"}, method =RequestMethod.GET )
+	public String header(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response ) throws IOException{		
+//		List<Medicine> medicines = medicineService.findAllActive();		
+//		model.addAttribute("medicines",medicines);
+		return "/admin/header";
+	}
 }
