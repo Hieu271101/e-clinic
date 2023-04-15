@@ -382,9 +382,9 @@
                                     <img class="img-circle"  src="${base }/upload/${user.img}" />
                                 </div>
                                 <br>
-                                <button class="btn btn-info btn-rounded m-b-5"><i class="fa fa-plus"></i>  Sửa</button>
-                                <h5 class="font-strong m-b-10 m-t-10">${user.name }</h5>
-                                <div class="m-b-20 text-muted">${user.username }</div>
+                                <a href="${base }/admin/user/edit/${user.id}" class="btn btn-info btn-rounded m-b-2"><i class="fa fa-plus"></i>  Sửa</a>
+                                <h5 class="font-strong m-b-10 m-t-10">${user.name }  </h5>
+                                <div class="m-b-20 text-muted">${user.username }    </div> 
                                 
                                 <div>
                                     <button class="btn btn-success btn-rounded m-b-5"><i class="fa fa-plus"></i> ${user.phone }</button>
@@ -394,9 +394,9 @@
                         </div>
                         <div class="ibox">
                             <div class="ibox-body">
-                            <p class="text-left">Giới tính: ${user.gender }</p>
-                                <p class="text-left">Ngày sinh: ${user.dob }</p>
-                                <p class="text-left">Địa chỉ: ${user.address }</p>
+                            <p class="text-left">Giới tính: ${user.gender } </p>
+                                <p class="text-left">Ngày sinh: ${user.dob } </p>
+                                <p class="text-left">Địa chỉ: ${user.address } </p>
                             </div>
                         </div>
                         <div class="ibox">

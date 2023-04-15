@@ -39,8 +39,7 @@ public class UserService extends BaseService<User> {
 			// lưu avatar vào đường dẫn trên
 			productAvatar.transferTo(new File(pathToAvatar));
 
-//			p.setImg("product/avatar/" + fileName);
-			p.setImg(pathToAvatar);
+			p.setImg("product/avatar/" + fileName);
 		}
 
 		// có đẩy pictures(product_images) ???

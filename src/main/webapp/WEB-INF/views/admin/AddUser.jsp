@@ -651,10 +651,10 @@
 					maxlength : 4
 				},
 				password : {
-					required : !0
+					/* required : !0 */
 				},
 				password_confirmation : {
-					required : !0,
+					/* required : !0, */
 					equalTo : "#password"
 				}
 			},

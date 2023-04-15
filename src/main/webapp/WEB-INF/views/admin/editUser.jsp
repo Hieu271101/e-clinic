@@ -10,18 +10,17 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width initial-scale=1.0">
-<title>Admincast bootstrap 4 &amp; angular 5 admin template,
-	Шаблон админки | Form</title>
+<title>Admin Add User</title>
 <!-- GLOBAL MAINLY STYLES-->
-<link href="${base}/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css"
+<link
+	href="${base}/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet" />
-<link href="${base}/admin/assets/vendors/font-awesome/css/font-awesome.min.css"
+<link
+	href="${base}/admin/assets/vendors/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" />
-<link href="${base}/admin/assets/vendors/themify-icons/css/themify-icons.css"
+<link
+	href="${base}/admin/assets/vendors/themify-icons/css/themify-icons.css"
 	rel="stylesheet" />
-<link href="${base}/admin/assets/vendors/summernote/dist/summernote.css"
-	rel="stylesheet" />
-
 <!-- PLUGINS STYLES-->
 <!-- THEME STYLES-->
 <link href="${base}/admin/assets/css/main.min.css" rel="stylesheet" />
@@ -241,11 +240,11 @@
 							class="sidebar-item-icon fa fa-edit"></i> <span class="nav-label">Forms</span><i
 							class="fa fa-angle-left arrow"></i></a>
 						<ul class="nav-2-level collapse in">
-							<li><a class="active" href="form_basic.html">Basic Forms</a>
-							</li>
+							<li><a href="form_basic.html">Basic Forms</a></li>
 							<li><a href="form_advanced.html">Advanced Plugins</a></li>
 							<li><a href="form_masks.html">Form input masks</a></li>
-							<li><a href="form_validation.html">Form Validation</a></li>
+							<li><a class="active" href="form_validation.html">Form
+									Validation</a></li>
 							<li><a href="text_editors.html">Text Editors</a></li>
 						</ul></li>
 					<li><a href="javascript:;"><i
@@ -319,67 +318,98 @@
 			<!-- START PAGE CONTENT-->
 			
 			<div class="page-content fade-in-up">
-				<div class="row"></div>
 
-				<div class="row">
-					<div class="col-md-12">
-						<div class="ibox">
-							<div class="ibox-head">
-								<div class="ibox-title">Thêm thuốc</div>
-								<div class="ibox-tools">
-									<a class="ibox-collapse"><i class="fa fa-minus"></i></a> <a
-										class="fullscreen-link"><i class="fa fa-expand"></i></a>
-								</div>
-							</div>
-							<div class="ibox-body">
-								<sf:form modelAttribute="newMedicine"  action="${base }/admin/addmedicine" method="post" id="form-sample-1">
-									<div class="form-group">
+				<div class="ibox">
+					<div class="ibox-head">
+						<div class="ibox-title">Sửa tài khoản: ${newUser.username }</div>
+
+					</div>
+					<div class="ibox-body">
+						<sf:form modelAttribute="newUser" action="${base }/admin/editUser"
+							method="post" class="form-horizontal" id="form-sample-1"
+							novalidate="novalidate"
+							enctype="multipart/form-data"
+							>
+							<div class="form-group">
 										<%-- <label>Id</label> 	--%>
 										<sf:hidden path="id" class="form-control" placeholder="Điền Thông tin tại đây" /> 
 									
-									</div>
-									<div class="form-group">
-										<label>Tên thuốc</label> <sf:input path="name" name="name" id="name" class="form-control" type="text"
-											placeholder="Điền tên thuốc tại đây" />
-									</div>
-									<div class="form-group">
-										<label>Số lượng</label> <sf:input path="quantity" id="quantity" class="form-control" type="number"
-											placeholder="Nhập số lượng thuốc" />
-									</div>
-									<div class="form-group">
-										<label>Giá bán</label> <sf:input path="price" class="form-control" type="number"
-											placeholder="Nhập số tiền bán" />
-									</div>
-									<div class="form-group">
-										<label>Giá vốn</label> <sf:input path="cost" class="form-control" type="number"
-											placeholder="Nhập số tiền vốn" />
-									</div>
-									<div class="form-group">
-										<label>Hạn sử dụng( tháng/ngày/năm)</label> <sf:input path="exp"
+							</div>
+                             <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Họ và tên</label>
+                                <div class="col-sm-10">
+                                    <sf:input class="form-control" type="text" name="name" path="name" placeholder="Nhập họ và tên"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <sf:input class="form-control" type="text" name="email" path="email" placeholder="Nhập email"/>
+                                </div>
+                            </div>
+                             <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Số điện thoại</label>
+                                <div class="col-sm-10">
+                                    <sf:input class="form-control" id="ex-phone2" type="text" path="phone" placeholder="Nhập số điện thoại"/>
+                                    <span class="help-block">Data format +84 000 000 000</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Giới tính</label>
+                                        <div class="col-sm-10">
+                                        <sf:select class="form-control" path="gender">
+                                            <sf:option value="Nam">Nam</sf:option>
+                                            <sf:option value="Nữ">Nữ</sf:option>
+                                            <sf:option value="Chuyển giới Nam">Chuyển giới Nam</sf:option>
+                                            <sf:option value="Chuyển giới Nữ">Chuyển giới Nữ</sf:option>
+                                            
+                                        </sf:select>
+                                        </div>
+                            </div>
+                           <div class="form-group row">
+										<label class="col-sm-2 col-form-label">Ngày sinh</label>
+                           				  <div class="col-sm-10">
+										 <sf:input path="dob"
 											class="form-control" type="date" id="date" name="date"
 											value="2023-03-26"/>
-									</div>
-									<div class="form-group">
-										<label>Nhà cung cấp</label> <sf:input class="form-control" path="supplier"
-											type="text" placeholder="Điền Thông tin tại đây"/>
-									</div>
-									<div class="form-group">
-										<label>Mô tả</label>
-										<sf:textarea class="form-control" path="description" id="summernote" name="message" 
-											rows="3"></sf:textarea>
-									</div>
-
-									<div class="form-group row">
-										<div class="col-sm-12 ml-sm-auto">
-											<button class="btn btn-info" type="submit">Submit</button>
 										</div>
-									</div>
-
-								</sf:form>
 							</div>
-						</div>
-					</div>
+                             <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Địa chỉ</label>
+                                <div class="col-sm-10">
+                                    <sf:input class="form-control" type="text" name="address" path="address" placeholder="Nhập địa chỉ"/>
+                                </div>
+                            </div>
+                           <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Quyền</label>
+                                        <div class="col-sm-10">
+                                        <select class="form-control">
+                                            <option value="1">Bệnh nhân</option>
+                                            <option value="0">Quản lý</option>
+                                            
+                                        </select>
+                                        </div>
+                            </div>
+                             <div class="form-group row">
+                            		 <label class="col-sm-2 col-form-label">Avatar</label>
+                           			 <div class="col-sm-10">
+									 <input id="fileProductAvatar"  name="productAvatar"  type="file" class="form-control">
+								<br>
+								<%-- <div class="form-group">
 
+									<img alt="" style="width: 100px; height: 100px"
+										src="${base }/upload/${newUser.img}">
+								</div> --%>
+							</div>
+							</div>
+                            
+                             <div class="form-group row">
+                                <div class="col-sm-12 ml-sm-auto">
+                                    <button class="btn btn-info" type="submit">Lưu</button>
+                                </div>
+                            </div>
+						</sf:form>
+					</div>
 				</div>
 
 			</div>
@@ -545,26 +575,12 @@
 	<!-- END THEME CONFIG PANEL-->
 	<!-- BEGIN PAGA BACKDROPS-->
 	<div class="sidenav-backdrop backdrop"></div>
-	<!-- <div class="preloader-backdrop">
+	<div class="preloader-backdrop">
 		<div class="page-preloader">Loading</div>
-	</div> -->
+	</div>
 	<!-- END PAGA BACKDROPS-->
 	<!-- CORE PLUGINS-->
-	
-	
-	
-	<%-- <script
-		src="${base }/admin/assets/vendors/summernote/dist/summernote.min.js"
-		type="text/javascript"></script>
-	<script type="text/javascript">
-		$(function() {
-			$('#summernote').summernote();
-			$('.note-popover').css({
-				'display' : 'none'
-			});
-		})
-	</script> --%>
-	<%-- <script src="${base}/admin/assets/vendors/jquery/dist/jquery.min.js"
+	<script src="${base}/admin/assets/vendors/jquery/dist/jquery.min.js"
 		type="text/javascript"></script>
 	<script
 		src="${base}/admin/assets/vendors/popper.js/dist/umd/popper.min.js"
@@ -578,76 +594,53 @@
 	<script
 		src="${base}/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js"
 		type="text/javascript"></script>
-	<script
-		src="${base}/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js"
-		type="text/javascript"></script>
-	<script src="${base}/admin/assets/js/app.min.js" type="text/javascript"></script>
-	<script
-		src="${base}/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js"
-		type="text/javascript"></script> --%>
-	
-	
-	<script src="${base}/admin/assets/vendors/jquery/dist/jquery.min.js"
-		type="text/javascript"></script>
-	<script src="${base}/admin/assets/vendors/popper.js/dist/umd/popper.min.js"
-		type="text/javascript"></script>
-	<script src="${base}/admin/assets/vendors/bootstrap/dist/js/bootstrap.min.js"
-		type="text/javascript"></script>
-	<script src="${base}/admin/assets/vendors/metisMenu/dist/metisMenu.min.js"
-		type="text/javascript"></script>
-	<script
-		src="${base}/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js"
-		type="text/javascript"></script>
 	<!-- PAGE LEVEL PLUGINS-->
 	<script
 		src="${base}/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js"
 		type="text/javascript"></script>
 	<!-- CORE SCRIPTS-->
 	<script src="${base}/admin/assets/js/app.min.js" type="text/javascript"></script>
-	<!-- PAGE LEVEL SCRIPTS-->
-	
 	<script
 		src="${base}/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js"
 		type="text/javascript"></script>
+	<!-- PAGE LEVEL SCRIPTS-->
 	<script type="text/javascript">
 		$("#form-sample-1").validate({
 			rules : {
-				
+				username : {
+					
+					required : !0
+				},
 				name : {
 					minlength : 2,
 					required : !0
 				},
-				quantity : {
-					 required : !0,
-					 min: 0
-				},
-				price : {
-					 required : !0,
-					 min: 0
-				},
-				cost : {
+				email : {
 					required : !0,
-					 min: 0
-				}
-				
-				
-			},
-			messages: {
-				name : {
-					minlength : 2,
-					required : "Tên thuốc không được để trống"
+					email : !0
 				},
-				quantity : {
-					 required : "Số lượng không được để trống",
-					 min: "Số lượng không thể âm"
+				url : {
+					required : !0,
+					url : !0
 				},
-				price : {
-					 required : "Giá không được trống",
-					 min: "Giá không được âm"
+				number : {
+					required : !0,
+					number : !0
 				},
-				cost : {
-					required : "Giá không được trống",
-					 min: "Giá không được âm"
+				min : {
+					required : !0,
+					minlength : 3
+				},
+				max : {
+					required : !0,
+					maxlength : 4
+				},
+				password : {
+					/* required : !0 */
+				},
+				password_confirmation : {
+					/* required : !0, */
+					equalTo : "#password"
 				}
 			},
 			errorClass : "help-block error",
@@ -658,6 +651,13 @@
 				$(e).closest(".form-group.row").removeClass("has-error")
 			},
 		});
+	</script>
+	<script type="text/javascript">
+		$(function() {
+
+			$('#ex-phone2').mask('+84 999 999 999');
+
+		})
 	</script>
 </body>
 </html>

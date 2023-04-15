@@ -66,7 +66,7 @@ public class AdminManageUserController {
 		User userInDbs = userService.getById(id);
 		model.addAttribute("newUser", userInDbs);
 		
-		return "/admin/AddUser";
+		return "/admin/editUser";
 		
 	}
 	
@@ -99,7 +99,7 @@ public class AdminManageUserController {
 //		System.out.println("----------------------------------------------------------------------");
 //		List<Medicine> medicines = medicineService.findAllActive();		
 //		model.addAttribute("medicines",medicines);
-		System.out.println(productAvatar.getSize());
+		
 		if (user.getId() == null || user.getId() <= 0) {
 			userService.add(user, productAvatar, productPictures);
 
@@ -110,8 +110,36 @@ public class AdminManageUserController {
 			userService.update(user,productAvatar,productPictures);
 
 		}
-		System.out.println(user.getImg());
-		return "/admin/AddUser";
+	
+		return "redirect:user";
+	}
+	
+	@RequestMapping(value= {"/admin/editUser"}, method =RequestMethod.POST )
+	public String editUserPOST(final ModelMap model, final HttpServletRequest request, 
+			final HttpServletResponse response,
+			@ModelAttribute("newUser") User user,		
+			@RequestParam("productAvatar") MultipartFile productAvatar,
+			@RequestParam("productPictures") MultipartFile[] productPictures) throws IOException{		
+
+		
+		if (user.getId() == null || user.getId() <= 0) {
+			User userInDbs = userService.getById(user.getId());
+			user.setUsername(userInDbs.getUsername());
+			user.setPassword(userInDbs.getPassword());
+			userService.add(user, productAvatar, productPictures);
+			
+		}
+		// chỉnh sửa
+		else
+		{ 	
+			User userInDbs = userService.getById(user.getId());
+			user.setUsername(userInDbs.getUsername());
+			user.setPassword(userInDbs.getPassword());
+			userService.update(user,productAvatar,productPictures);
+
+		}
+	
+		return "redirect:user";
 	}
 	
 	

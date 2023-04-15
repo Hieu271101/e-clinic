@@ -3,20 +3,18 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
-<jsp:include page="/WEB-INF/views/variables.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>Admincast bootstrap 4 &amp; angular 5 admin template, Шаблон админки | DataTables</title>
+    <title>Admincast bootstrap 4 &amp; angular 5 admin template, Шаблон админки | Form Validation</title>
     <!-- GLOBAL MAINLY STYLES-->
     <link href="${base}/admin/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="${base}/admin/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="${base}/admin/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
-    <link href="${base}/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
     <!-- THEME STYLES-->
     <link href="${base}/admin/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
@@ -170,10 +168,9 @@
                             <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <!-- <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a> -->
-                            
+                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
-                            <a class="dropdown-item" href="${base }/changePassword/"><i class="fa fa-cog"></i>Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="/changePassword/${user.id }"><i class="fa fa-cog"></i>Đổi mật khẩu</a>
                             <li class="dropdown-divider"></li>
                             <a class="dropdown-item" href="login.html"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
@@ -233,12 +230,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
                             <span class="nav-label">Forms</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
+                        <ul class="nav-2-level collapse in">
                             <li>
-                                <a href="form_basic.html">Basic Forms</a>
+                                <a href="form_basic.html">Đổi mật khẩu</a>
                             </li>
                             <li>
                                 <a href="form_advanced.html">Advanced Plugins</a>
@@ -247,22 +244,22 @@
                                 <a href="form_masks.html">Form input masks</a>
                             </li>
                             <li>
-                                <a href="form_validation.html">Form Validation</a>
+                                <a class="active" href="form_validation.html">Đổi mật khẩu</a>
                             </li>
                             <li>
                                 <a href="text_editors.html">Text Editors</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-table"></i>
                             <span class="nav-label">Tables</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse in">
+                        <ul class="nav-2-level collapse">
                             <li>
                                 <a href="table_basic.html">Basic Tables</a>
                             </li>
                             <li>
-                                <a class="active" href="datatables.html">Datatables</a>
+                                <a href="datatables.html">Datatables</a>
                             </li>
                         </ul>
                     </li>
@@ -377,100 +374,51 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h1 class="page-title">DataTables</h1>
+                <h1 class="page-title">Form Validation</h1>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="index.html"><i class="la la-home font-20"></i></a>
                     </li>
-                    <li class="breadcrumb-item">DataTables</li>
+                    <li class="breadcrumb-item">Form Validation</li>
                 </ol>
             </div>
             <div class="page-content fade-in-up">
+                
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Data Table</div>
+                        <div class="ibox-title">Đổi mật khẩu</div>
+                        <div class="ibox-tools">
+                            <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                        </div>
                     </div>
                     <div class="ibox-body">
-                        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>id</th>
-                                    <th>User Name</th>
-                                    <th>Họ và tên</th>
-                                    <th>Email</th>
-                                    <th>Số điện thoại</th>
-                                   <th>Giới tính</th>
-                                   <th>Ngày sinh</th>
-                                  
-                                   <th>Chức năng</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>id</th>
-                                    <th>User Name</th>
-                                    <th>Họ và tên</th>
-                                    <th>Email</th>
-                                    <th>Số điện thoại</th>
-                                   <th>Giới tính</th>
-                                   <th>Ngày sinh</th>
-                                  
-                                   <th>Chức năng</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                            
-                               <c:forEach var="user" items="${users }">
-                                
-                                <tr >
-                                    <td>${user.id }</td>
-                                    <td>${user.username }</td>
-                                    <td>${user.name }</td>
-                                    <td>${user.email }</td>
-                                    <td>${user.phone }</td>
-                                    <td>${user.gender }</td>
-                                    <td>${user.dob }</td>
-                                 
-                                    <td>
-											<div class="row">
-											<div class="col-sm-2">
-												<a
-													class="btn btn-dark"
-													href="${base }/admin/user/${user.id }"
-													id="show-emp" 
-													> Chi tiết
-												</a>
-											</div>
-											<div class="col-sm-1">
-												<a
-													class="btn btn-warning"
-													href="${base }/order"
-													id="show-emp" 
-													> Khám
-												</a>
-											</div>		
-											<div class="col-sm-2">
-												<a
-													class="btn btn-info"
-													href="${base }/admin/user/edit/${user.id }"
-													id="show-emp" 
-													> Sửa
-												</a>
-											</div>
-											<div class="col-sm-2">
-													<a  class="btn btn-warning"  role="button"
-													onclick="DeleteProduct(${user.id });">Xóa</a>
-											</div>
-												
-											</div>
-										</td>
-                                </tr>
-                                </c:forEach>
+                    	
+                        <sf:form modelAttribute="user" action="${base }/changePassword" class="form-horizontal" id="form-sample-1" method="post" novalidate="novalidate">
+                            <div class="form-group row">
                                
-                                
-                                  
-                            </tbody>
-                        </table>
+                                <div class="col-sm-10">
+                                    <sf:hidden path="id" class="form-control" id="id"  name="password" placeholder="Mật khẩu"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Mật khẩu</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="password" type="password" name="password" placeholder="Mật khẩu">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                           		 <label class="col-sm-2 col-form-label">Xác nhận Mật khẩu</label>
+                                <div class="col-sm-10 ml-sm-auto">
+                                    <input class="form-control" type="password" name="password_confirmation" placeholder="Xác nhận mật khẩu">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <div class="col-sm-10 ml-sm-auto">
+                                    <button class="btn btn-info" type="submit">Lưu</button>
+                                </div>
+                            </div>
+                        </sf:form>
                     </div>
                 </div>
                 
@@ -615,7 +563,9 @@
     <!-- END THEME CONFIG PANEL-->
     <!-- BEGIN PAGA BACKDROPS-->
     <div class="sidenav-backdrop backdrop"></div>
-   
+    <div class="preloader-backdrop">
+        <div class="page-preloader">Loading</div>
+    </div>
     <!-- END PAGA BACKDROPS-->
     <!-- CORE PLUGINS-->
     <script src="${base}/admin/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
@@ -624,24 +574,53 @@
     <script src="${base}/admin/assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
     <script src="${base}/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL PLUGINS-->
-    <script src="${base}/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
+    <script src="${base}/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
     <!-- CORE SCRIPTS-->
-    <script src="assets/js/app.min.js" type="text/javascript"></script>
+    <script src="${base}/admin/assets/js/app.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
-        $(function() {
-            $('#example-table').DataTable({
-                pageLength: 10,
-                //"ajax": './assets/demo/data/table_data.json',
-                /*"columns": [
-                    { "data": "name" },
-                    { "data": "office" },
-                    { "data": "extn" },
-                    { "data": "start_date" },
-                    { "data": "salary" }
-                ]*/
-            });
-        })
+        $("#form-sample-1").validate({
+            rules: {
+                name: {
+                    minlength: 2,
+                    required: !0
+                },
+                email: {
+                    required: !0,
+                    email: !0
+                },
+                url: {
+                    required: !0,
+                    url: !0
+                },
+                number: {
+                    required: !0,
+                    number: !0
+                },
+                min: {
+                    required: !0,
+                    minlength: 3
+                },
+                max: {
+                    required: !0,
+                    maxlength: 4
+                },
+                password: {
+                    required: !0
+                },
+                password_confirmation: {
+                    required: !0,
+                    equalTo: "#password"
+                }
+            },
+            errorClass: "help-block error",
+            highlight: function(e) {
+                $(e).closest(".form-group.row").addClass("has-error")
+            },
+            unhighlight: function(e) {
+                $(e).closest(".form-group.row").removeClass("has-error")
+            },
+        });
     </script>
 </body>
 </html>
