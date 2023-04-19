@@ -22,6 +22,7 @@
 		src="${base}/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js"
 		type="text/javascript"></script>
 	<!-- PAGE LEVEL PLUGINS-->
+	 <script src="${base}/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
 	<script
 		src="${base}/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js"
 		type="text/javascript"></script>

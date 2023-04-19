@@ -21,6 +21,55 @@
         <jsp:include page="/WEB-INF/views/admin/core/header.jsp"></jsp:include>
         <!-- END SIDEBAR-->
         <div class="content-wrapper">
+        	<div class="page-content fade-in-up">
+				<div class="row"></div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="ibox">
+							<div class="ibox-head">
+								<div class="ibox-title">Thêm thuốc</div>
+								<div class="ibox-tools">
+									<a class="ibox-collapse"><i class="fa fa-minus"></i></a> <a
+										class="fullscreen-link"><i class="fa fa-expand"></i></a>
+								</div>
+							</div>
+							<div class="ibox-body">
+								<form>
+                                    <div class="row">
+                                        <div class="col-sm-6 form-group">
+                                            <label>First Name</label>
+                                            <input class="form-control" type="text" placeholder="First Name">
+                                        </div>
+                                        <div class="col-sm-6 form-group">
+                                            <label>Last Name</label>
+                                            <input class="form-control" type="text" placeholder="First Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input class="form-control" type="text" placeholder="Email address">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input class="form-control" type="password" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="ui-checkbox">
+                                            <input type="checkbox">
+                                            <span class="input-span"></span>Remamber me</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-default" type="submit">Submit</button>
+                                    </div>
+                                </form>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
                 <h1 class="page-title">DataTables</h1>
@@ -39,51 +88,55 @@
                     <div class="ibox-body">
                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                             <thead>
-                                <tr>
-                                    <th>id</th>
-                                    <th>Họ và tên</th>
-                                    <th>Email</th>
-                                    <th>Số điện thoại</th>
-                                   <th>Giới tính</th>
-                                   <th>Ngày sinh</th>
-                                   <th>Ảnh</th>
-                                   <th>Chức năng</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>id</th>
-                                    <th>Họ và tên</th>
-                                    <th>Email</th>
-                                    <th>Số điện thoại</th>
-                                   <th>Giới tính</th>
-                                   <th>Ngày sinh</th>
-                                   <th>Ảnh</th>
-                                   <th>Chức năng</th>
-                                </tr>
-                            </tfoot>
+								<tr>
+									<th>Id</th>
+									<th>Tên sản phẩm</th>
+									<th>Số lượng</th>
+									<th>Giá bán</th>
+									<th>Giá gốc</th>
+									<th>Hạn sử dụng</th>
+
+									<th>Nhà cung cấp</th>
+									<th>Mô tả</th>
+									<th>Chức năng</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Id</th>
+									<th>Tên sản phẩm</th>
+									<th>Số lượng</th>
+									<th>Giá bán</th>
+									<th>Giá gốc</th>
+									<th>Hạn sử dụng</th>
+
+									<th>Nhà cung cấp</th>
+									<th>Mô tả</th>
+									<th>Chức năng</th>
+								</tr>
+							</tfoot>
                             <tbody>
-                            
-                                
-                               
-                                <tr >
-                                    <td>1</td>
-                                    <td>Customer Support</td>
-                                    <td>New York</td>
-                                    <td>27</td>
-                                    <td>2011/01/25</td>
-                                    <td>$112,000</td>
-                                    <td>$112,000</td>
-                                    <td>
+								<c:forEach var="medicine" items="${medicines }">
+									<tr>
+										<td>${medicine.id }</td>
+										<td>${medicine.name }</td>
+										<td>${medicine.quantity }</td>
+										<td>${medicine.price }</td>
+										<td>${medicine.cost }</td>
+										<td>${medicine.exp }</td>
+										<td>${medicine.supplier }</td>
+										<td>${medicine.description }</td>
+										<td>
 											<div class="row">
 												
-												 
+												 <div class="col-sm-2">
 												<a
 													class="btn btn-info"
 													href="${base }/admin/addmedicine/${medicine.id}"
 													id="show-emp" 
 													> Sửa
 												</a>
+												 </div>
 												<div class="col-sm-2">
 													<a  class="btn btn-warning"  role="button"
 													onclick="DeleteProduct(${medicine.id});">Xóa</a>
@@ -91,9 +144,17 @@
 												
 											</div>
 										</td>
-                                </tr>
-                                  
-                            </tbody>
+
+
+
+									</tr>
+								</c:forEach>
+
+
+
+
+
+							</tbody>
                         </table>
                     </div>
                 </div>

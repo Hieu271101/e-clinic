@@ -115,7 +115,7 @@
 		</div>
 	</div>
 	<!-- BEGIN THEME CONFIG PANEL-->
-	 <jsp:include page="/WEB-INF/views/admin/core/themeConfig.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/admin/core/themeConfig.jsp"></jsp:include>
 	<!-- END THEME CONFIG PANEL-->
 	<!-- BEGIN PAGA BACKDROPS-->
 	<div class="sidenav-backdrop backdrop"></div>

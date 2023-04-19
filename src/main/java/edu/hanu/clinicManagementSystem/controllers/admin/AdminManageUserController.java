@@ -1,17 +1,21 @@
 package edu.hanu.clinicManagementSystem.controllers.admin;
 
-import java.io.IOException; 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -141,6 +145,23 @@ public class AdminManageUserController {
 	
 		return "redirect:user";
 	}
-	
+	@RequestMapping(value = { "/admin/ajax/deleteUser" }, method = RequestMethod.POST)
+	public ResponseEntity<Map<String, Object>> deleteProduct(final Model model, 
+															final HttpServletRequest request,
+															final HttpServletResponse response, 
+															final @RequestBody Medicine product) {
+//		System.out.println(product.getName());
+		
+		User productInDbs= userService.getById(product.getId());
+		productInDbs.setStatus(false);
+		userService.saveOrUpdate(productInDbs);
+		
+//		System.out.println(contact.getMail());
+		
+		Map<String, Object> jsonResult = new HashMap<String, Object> ();
+		jsonResult.put("statusCode", 200); // status code ví dụ: 200: Success, 500: Error, 404: NotFound
+		jsonResult.put("statusMessage", "Đã xóa thành công");
+		return ResponseEntity.ok(jsonResult);
+	}
 	
 }

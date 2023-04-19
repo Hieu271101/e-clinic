@@ -132,6 +132,7 @@
    
     <!-- END PAGA BACKDROPS-->
     <!-- CORE PLUGINS-->
+    
     <script src="${base}/admin/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="${base}/admin/assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
     <script src="${base}/admin/assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
@@ -143,6 +144,47 @@
     <script src="assets/js/app.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
+		function DeleteProduct(productId) {
+				
+				//with upload file
+				// Get form
+			    //var form = $('#fileUploadForm')[0];
+			    //var data = new FormData(form);
+				
+				// javascript object.
+				// data la du lieu ma day len action cua controller
+				let data = {
+					id:productId,
+				};
+				
+				// $ === jQuery
+				// json == javascript object
+				if (confirm("Bạn có chắc chắn muốn xoác không?")) {
+				  // user clicked OK
+					jQuery.ajax({
+						url : "/admin/ajax/deleteUser",
+						type : "post",
+						contentType : "application/json",
+						data : JSON.stringify(data),
+						
+						
+						dataType : "json", // kieu du lieu tra ve tu controller la json
+						success : function(jsonResult) {
+							
+							alert("Đã xóa thành công!!!!! ");
+							location.reload();
+						},
+						error : function(jqXhr, textStatus, errorMessage) { // error callback 
+							alert("error");
+						}
+					});
+				} else {
+				  // user clicked Cancel
+				  // do something else here
+				}
+				
+			}	
+    
         $(function() {
             $('#example-table').DataTable({
                 pageLength: 10,
