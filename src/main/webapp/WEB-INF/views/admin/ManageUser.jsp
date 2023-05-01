@@ -40,7 +40,7 @@
                             <thead>
                                 <tr>
                                     <th>id</th>
-                                    <th>User Name</th>
+                                   
                                     <th>Họ và tên</th>
                                     <th>Email</th>
                                     <th>Số điện thoại</th>
@@ -53,7 +53,7 @@
                             <tfoot>
                                 <tr>
                                     <th>id</th>
-                                    <th>User Name</th>
+                                  
                                     <th>Họ và tên</th>
                                     <th>Email</th>
                                     <th>Số điện thoại</th>
@@ -69,7 +69,7 @@
                                 
                                 <tr >
                                     <td>${user.id }</td>
-                                    <td>${user.username }</td>
+                                  
                                     <td>${user.name }</td>
                                     <td>${user.email }</td>
                                     <td>${user.phone }</td>
@@ -89,7 +89,7 @@
 											<div class="col-sm-1">
 												<a
 													class="btn btn-warning"
-													href="${base }/order"
+													href="${base }/order/${user.id}"
 													id="show-emp" 
 													> Khám
 												</a>

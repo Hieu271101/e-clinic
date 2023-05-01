@@ -1,5 +1,9 @@
 package edu.hanu.clinicManagementSystem.service.admin;
 
+import java.util.List;
+
+import javax.persistence.Table;
+
 import org.springframework.stereotype.Service ;
 import org.springframework.util.StringUtils;
 
@@ -14,6 +18,22 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 	@Override
 	protected Class<SaleOrder> clazz() {
 		return SaleOrder.class;
+	}
+	
+//	public List<SaleOrder> getOrderOfUser(int userId) {
+//		// khởi tạo câu lệnh
+//		String sql = "SELECT * FROM tbl_saleorder  WHERE user_id = " + userId + "AND status = 1 ";
+//
+//		return executeNativeSql(sql);
+//	} 
+//	
+	@SuppressWarnings("unchecked")
+	public List<SaleOrder> getOrderOfUser(int userId) {
+		Table tbl = clazz().getAnnotation(Table.class);
+		return (List<SaleOrder>) entityManager.createNativeQuery("SELECT * FROM " + tbl.name() + " WHERE status=1 AND user_id = "+userId, clazz())
+				.getResultList();
+//		String sql="SELECT *FROM tbl_product where status=1";
+//		return super.executeNativeSql(sql);
 	}
 //	public PagerData<SaleOrder> search(OrderSearchModel searchModel) {
 //		// khởi tạo câu lệnh

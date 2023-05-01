@@ -18,10 +18,10 @@ import edu.hanu.clinicManagementSystem.entities.BaseEntity;
 @Entity
 @Table(name = "tbl_saleorder")
 public class SaleOrder extends BaseEntity {
-//	SaleOrderProduct
-	@OneToMany(cascade = CascadeType.ALL, 
-			   mappedBy = "saleOrders", 
-			   fetch = FetchType.EAGER)
+
+	
+	//	SaleOrderProduct
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "saleOrders", fetch = FetchType.EAGER)
 	private Set<SaleOrderProduct> saleOrderProducts = new HashSet<SaleOrderProduct>();
 	
 	public void addSaleOrderProducts(SaleOrderProduct _saleOrderProducts) {
@@ -33,25 +33,15 @@ public class SaleOrder extends BaseEntity {
 		_saleOrderProducts.setSaleOrders(null);
 		saleOrderProducts.remove(_saleOrderProducts);
 	}
-	@Column(name="status_transport")
-	private String statusTransport;
 	
 	
-
-	public String getStatusTransport() {
-		return statusTransport;
-	}
-
-	public void setStatusTransport(String statusTransport) {
-		this.statusTransport = statusTransport;
-	}
 	
 	@Column(name = "code")
 	private String code;
 	
 	
-//	@Column(name="user_id")
-//	private int userId;
+	@Column(name="user_id")
+	private int userId;
 	
 	
 	@Column(name="total")
@@ -69,23 +59,46 @@ public class SaleOrder extends BaseEntity {
 	@Column(name="customer_email")
 	private String customerEmail;
 	
+	@Column(name="customer_dob")
+	private String customerDob;
+	
+	@Column(name = "customer_gender")
+	private String customerGender;
+	
 	@Column(name="description")
 	private String description;
 	
+	@Column(name="total_item_price")
+	private BigDecimal totalItemPrice;
+	
+	@Column(name="service")
+	private String service;
+	
+	@Column(name="coefficient")
+	private int coefficient;
+	
+	@Column(name="surcharge")
+	private BigDecimal surcharge;
 	
 	
-	@Column(name="undertake")
-	private String undertake;
 	
 	
-	
-	public String getUndertake() {
-		return undertake;
+	public BigDecimal getTotalItemPrice() {
+		return totalItemPrice;
 	}
 
-	public void setUndertake(String undertake) {
-		this.undertake = undertake;
+	public void setTotalItemPrice(BigDecimal totalItemPrice) {
+		this.totalItemPrice = totalItemPrice;
 	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -142,6 +155,46 @@ public class SaleOrder extends BaseEntity {
 	}
 	public void setCustomerEmail(String customerEmail) {
 		this.customerEmail = customerEmail;
+	}
+
+	public String getCustomerDob() {
+		return customerDob;
+	}
+
+	public void setCustomerDob(String customerDob) {
+		this.customerDob = customerDob;
+	}
+
+	public String getCustomerGender() {
+		return customerGender;
+	}
+
+	public void setCustomerGender(String customerGender) {
+		this.customerGender = customerGender;
+	}
+
+	public String getService() {
+		return service;
+	}
+
+	public void setService(String service) {
+		this.service = service;
+	}
+
+	public int getCoefficient() {
+		return coefficient;
+	}
+
+	public void setCoefficient(int coefficient) {
+		this.coefficient = coefficient;
+	}
+
+	public BigDecimal getSurcharge() {
+		return surcharge;
+	}
+
+	public void setSurcharge(BigDecimal surcharge) {
+		this.surcharge = surcharge;
 	}
 	
 	

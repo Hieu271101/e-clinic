@@ -3,6 +3,7 @@ package edu.hanu.clinicManagementSystem.service.admin;
 
 import java.io.File; 
 import java.io.IOException;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -12,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import edu.hanu.clinicManagementSystem.dto.admin.MedicineSearchModel;
+import edu.hanu.clinicManagementSystem.dto.user.SaleOrder;
 import edu.hanu.clinicManagementSystem.entities.user.User;
 import edu.hanu.clinicManagementSystem.service.BaseService;
 import edu.hanu.clinicManagementSystem.service.PagerData;
@@ -152,5 +154,5 @@ public class UserService extends BaseService<User> {
 
 		return getEntitiesByNativeSQL(sql, searchModel.getPage());
 	}
-
+	
 }

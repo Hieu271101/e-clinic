@@ -1,5 +1,7 @@
 package edu.hanu.clinicManagementSystem.dto.user;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;  
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,9 +28,19 @@ public class SaleOrderProduct extends BaseEntity {
 	@JoinColumn(name="saleorder_id")
 	private SaleOrder saleOrders;
 	
+	@Column(name="total_price")
+	private BigDecimal totalPrice;
 	
 	
 	
+	public BigDecimal getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(BigDecimal totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
 	public Medicine getProducts() {
 		return products;
 	}

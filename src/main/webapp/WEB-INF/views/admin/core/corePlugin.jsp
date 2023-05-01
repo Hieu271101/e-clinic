@@ -22,15 +22,19 @@
 		src="${base}/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js"
 		type="text/javascript"></script>
 	<!-- PAGE LEVEL PLUGINS-->
+	<script src="${base }/admin/assets/vendors/chart.js/dist/Chart.min.js" type="text/javascript"></script>
 	 <script src="${base}/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
 	<script
 		src="${base}/admin/assets/vendors/jquery-validation/dist/jquery.validate.min.js"
 		type="text/javascript"></script>
-	<!-- CORE SCRIPTS-->
-	<script src="${base}/admin/assets/js/app.min.js" type="text/javascript"></script>
-	<!-- PAGE LEVEL SCRIPTS-->	
+	<script src="${base}/admin/assets/vendors/jvectormap/jquery-jvectormap-2.0.3.min.js" type="text/javascript"></script>
+    <script src="${base}/admin/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+    <script src="${base}/admin/assets/vendors/jvectormap/jquery-jvectormap-us-aea-en.js" type="text/javascript"></script>
 	<script
 		src="${base}/admin/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js"
 		type="text/javascript"></script>
+	<!-- CORE SCRIPTS-->
+	<script src="${base}/admin/assets/js/app.min.js" type="text/javascript"></script>
+	 <script src="${base}/admin/assets/js/scripts/dashboard_1_demo.js" type="text/javascript"></script>
 </body>
 </html>

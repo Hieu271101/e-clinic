@@ -78,7 +78,7 @@ public class UserController {
 		// chỉnh sửa
 		else
 		{ 	
-			userInDbs.setPassword(user.getPassword());
+//			userInDbs.setPassword(user.getPassword());
 			userService.saveOrUpdate(userInDbs);
 
 		}

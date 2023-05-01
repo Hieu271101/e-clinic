@@ -90,10 +90,10 @@ $(function() {
 
   
   var doughnutData = {
-      labels: ["Desktop","Tablet","Mobile" ],
+      labels: ["Thuốc","Dịch vụ" ],
       datasets: [{
-          data: [47,30,23],
-          backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)"]
+          data: [47,53],
+          backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)"]
       }]
   } ;
 

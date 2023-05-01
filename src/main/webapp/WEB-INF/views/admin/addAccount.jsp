@@ -41,7 +41,26 @@
 							novalidate="novalidate"
 							enctype="multipart/form-data"
 							>
-							
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Tài khoản</label>
+								<div class="col-sm-10">
+									<sf:input class="form-control" type="text" id="username" name="username"
+										path="username" placeholder="Nhập tài khoản" />
+								</div>
+							</div>
+							<div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Mật khẩu</label>
+                                <div class="col-sm-10">
+                                    <sf:input class="form-control" id="password" type="password" name="password" placeholder="Nhập mật khẩu" path="password"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                           		 <label class="col-sm-2 col-form-label">Nhập lại mật khẩu</label>
+                                <div class="col-sm-10 ml-sm-auto">
+                                	
+                                    <input class="form-control" type="password" name="password_confirmation" placeholder="Xác nhận mật khẩu">
+                                </div>
+                            </div>
                              <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Họ và tên</label>
                                 <div class="col-sm-10">
@@ -87,7 +106,16 @@
                                     <sf:input class="form-control" type="text" name="address" path="address" placeholder="Nhập địa chỉ"/>
                                 </div>
                             </div>
-                          
+                           <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Quyền</label>
+                                        <div class="col-sm-10">
+                                        <select class="form-control">
+                                            <option value="1">Bệnh nhân</option>
+                                            <option value="0">Quản lý</option>
+                                            
+                                        </select>
+                                        </div>
+                            </div>
                              <div class="form-group row">
                             		 <label class="col-sm-2 col-form-label">Avatar</label>
                            			 <div class="col-sm-10">
@@ -150,7 +178,10 @@
 	<script type="text/javascript">
 		$("#form-sample-1").validate({
 			rules : {
-				
+				username : {
+					
+					required : !0
+				},
 				name : {
 					minlength : 2,
 					required : !0
@@ -158,10 +189,6 @@
 				email : {
 					required : !0,
 					email : !0
-				},
-				phone : {
-					required : !0,
-					
 				},
 				url : {
 					required : !0,
@@ -178,6 +205,13 @@
 				max : {
 					required : !0,
 					maxlength : 4
+				},
+				password : {
+					/* required : !0 */
+				},
+				password_confirmation : {
+					/* required : !0, */
+					equalTo : "#password"
 				}
 			},
 			errorClass : "help-block error",

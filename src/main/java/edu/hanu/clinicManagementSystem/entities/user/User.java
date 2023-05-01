@@ -12,10 +12,7 @@ import edu.hanu.clinicManagementSystem.entities.BaseEntity;
 @Entity
 @Table(name = "user")
 public class User extends BaseEntity {
-	@Column(name = "username", nullable = true)
-	private String username;
-	@Column(name = "password", nullable = true)
-	private String password;
+	
 	@Column(name = "name", nullable = true)
 	private String name;
 	@Column(name = "email", nullable = true)
@@ -39,11 +36,10 @@ public class User extends BaseEntity {
 	}
 
 
-	public User(String username, String password, String name, String email, String phone, String gender, Date dob,
-			String address, int roleId, String img) {
+	
+	public User(String name, String email, String phone, String gender, Date dob, String address, int roleId,
+			String img) {
 		super();
-		this.username = username;
-		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -53,27 +49,9 @@ public class User extends BaseEntity {
 		this.roleId = roleId;
 		this.img = img;
 	}
-	public String getUserName() {
-		return username;
-	}
 
-	public String getUsername() {
-		return username;
-	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
-	public void setUserName(String userName) {
-		this.username = userName;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public String getName() {
 		return name;
 	}

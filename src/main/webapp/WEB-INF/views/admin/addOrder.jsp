@@ -28,89 +28,216 @@
 					<div class="col-md-12">
 						<div class="ibox">
 							<div class="ibox-head">
-								<div class="ibox-title">Thêm thuốc</div>
+								<div class="ibox-title">Thêm hóa đơn</div>
 								<div class="ibox-tools">
 									<a class="ibox-collapse"><i class="fa fa-minus"></i></a> <a
 										class="fullscreen-link"><i class="fa fa-expand"></i></a>
 								</div>
 							</div>
 							<div class="ibox-body">
-								<form> 
+								<form action="/order/save" method="post"> 
 								   <div class="row">
 										<div class="col-md-6">
-		                                    <div class="row">
-		                                   
-		                                        <div class="col-sm-6 form-group">
-		                                            <label>First Name</label>
-		                                            <input class="form-control" type="text" placeholder="First Name">
-		                                        </div>
-		                                        <div class="col-sm-6 form-group">
-		                                            <label>Last Name</label>
-		                                            <input class="form-control" type="text" placeholder="First Name">
-		                                        </div>
-		                                    </div>
+												<div class="row">
+
+			                                        <div class="col-sm-12 form-group">
+			                                            <label><h4>Thông tin bệnh nhân</h4></label>
+			                                          
+			                                        </div>
+			                                        
+			                                    </div>
+			                                 
+			                                    <div class="row">
+   													<input hidden=""  value="${user.id }" name="idCus" class="form-control" type="text" placeholder="First Name"> 
+			                                        <div class="col-sm-12 form-group">
+			                                            <label>Họ và Tên: ${user.name }</label>
+			                                            <input hidden="true" value="${user.name }" name="name" class="form-control" type="text" placeholder="First Name"> 
+			                                        </div>
+			                                        
+			                                    </div>
+			                                   <div class="row">
+				                                    <div class="col-sm-12 form-group">
+				                                        <label>Email: ${user.email }</label>
+				                                    	<input hidden="true" value="${user.email }" name="email" class="form-control" type="text" placeholder="Email address"> 
+				                                    </div>
+			                                   </div>
+			                                    <div class="row">
+				                                    <div class="col-sm-12 form-group">
+				                                        <label>Số điệnt thoại: ${user.phone }</label>
+				                               		   <input hidden="true" value="${user.phone }" name="phone" class="form-control" type="text" placeholder="Password"> 
+				                                    </div>
+			                                   </div>
+			                                   <div class="row">
+				                                    <div class="col-sm-12 form-group">
+				                                        <label>Địa chỉ: ${user.address }</label>
+				                               		   <input hidden="true" value="${user.address }" name="address" class="form-control" type="text" placeholder="Nhập địa chỉ"> 
+				                                    </div>
+			                                   </div>
+			                                   <div class="row">
+				                                    <div class="col-sm-12 form-group">
+				                                        <label>Giới tính: ${user.gender }</label>
+				                                     <input hidden="true" value="${user.gender }" name="gender" class="form-control" type="text" placeholder="Password"> 
+				                                    </div>
+			                                   </div>
+			                                   <div class="row">
+				                                    <div class="col-sm-12 form-group">
+				                                        <label>Ngày sinh(yyyy/mm/dd):   ${user.dob }</label>
+				                                     <input hidden="true" value="${user.dob }" name="dob" class="form-control" type="text" placeholder="Password"> 
+				                                    </div>
+			                                   </div>
+			                                   
+			                                    <hr>
+			                                    <div class="row">
+				                                    <div class="col-sm-6 form-group">
+				                                        
+				                                       
+					                                        <div class="m-b-10">
+					                                        	  <div class="form-group">
+								                                        <label>Mạch</label>
+								                                        <select class="form-control">
+								                                            <option value="">Phù</option>
+								                                            <option value="">Trung</option>
+								                                            <option value="">Trầm</option>
+								                                            <option value="">Thượng</option>
+								                                            <option value="">Hạ</option>
+								                                            <option value="">Tả</option>
+								                                            <option value="">Hữu</option>
+								                                        </select>
+								                                    </div>
+					                                            
+					                                        </div>
+					                                    
+				                                      
+				                                    </div>
+				                                    <div class="col-sm-6 form-group">
+				                                       
+				                                       
+					                                        <div class="m-b-10">
+					                                        	  <div class="form-group">
+								                                        <label>Chỉ số</label>
+								                                        <select class="form-control">
+								                                            <option value="">Tăng</option>
+								                                            <option value="">Giảm</option>
+								                                            <option value="">Nguyên</option>
+								                                           
+								                                        </select>
+								                                    </div>
+					                                            
+					                                        </div>
+					                                    
+				                                      
+				                                    </div>
+			                                   </div>
+			                             
+			                                  <div class="row">
+				                                    <div class="col-sm-12 form-group">
+				                                     <label>Mô tả: </label>
+				                                     <textarea name="description" class="form-control" ></textarea> 
+				                                    </div>
+			                                   </div>
+			                                   
+			                                   
+			                                   
+		                                   </div>
+                       
+                                   
+	                                   <div class="col-md-6" >
 		                                   <div class="row">
 		                                    <div class="col-sm-12 form-group">
-		                                        <label>Email</label>
-		                                        <input class="form-control" type="text" placeholder="Email address">
-		                                    </div>
-		                                   </div>
-		                                    <div class="row">
-		                                    <div class="col-sm-12 form-group">
-		                                        <label>Password</label>
-		                                        <input class="form-control" type="password" placeholder="Password">
-		                                    </div>
-		                                   </div>
-		                                   </div>
-                                   
-	                                   <div class="col-md-6">
-	                                   <div class="row">
-	                                    <div class="col-sm-12 form-group">
-	                                       <div>
-                                    <a class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-img">
-                                                <img src="./assets/img/users/u1.jpg" />
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="font-strong"> </div>Jeanne Gonzalez<small class="text-muted float-right">Just now</small>
-                                                <div class="font-13">Your proposal interested me.</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-img">
-                                                <img src="./assets/img/users/u2.jpg" />
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="font-strong"></div>Becky Brooks<small class="text-muted float-right">18 mins</small>
-                                                <div class="font-13">Lorem Ipsum is simply.</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-img">
-                                                <img src="./assets/img/users/u3.jpg" />
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="font-strong"></div>${user.name }<small class="text-muted float-right">18 mins</small>
-                                                <div class="font-13">Lorem Ipsum is simply.</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-img">
-                                                <img src="./assets/img/users/u4.jpg" />
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="font-strong"></div>Rose Pearson<small class="text-muted float-right">3 hrs</small>
-                                                <div class="font-13">Lorem Ipsum is simply.</div>
-                                            </div>
-                                        </div>
-                                    </a>
+		                                       <div>
+		                                       <label><h4>Thang thuốc</h4></label>
+		                                       <table>
+										        <thead>
+										            <tr>
+										                <th>Tên thuốc</th>
+										                <th>Số lượng(gam)</th>
+										                <th>Giá(vnđ)</th>
+										                <th>Tổng(vnđ)</th>
+										                <th>Chức năng</th>
+										            </tr>
+										        </thead>
+										        <tbody>
+										        	
+										           <c:forEach items="${cart.cartItems }" var="ci">
+											            <tr data-product-id="${ci.productId }">
+												                <td>${ci.productName }</td>
+												                <td>
+												                	<%-- <button class="plus"
+																	onclick="UpdateQuanlityCart('${base }', ${ci.productId}, 1)"
+																	value="+">+</button> --%>
+																	
+												                    <input type="number" step="any" min="0" value="${ci.quanlity }" class="quantity-input">
+												                	
+												                	<%-- <button class="mute"
+																	onclick="UpdateQuanlityCart('${base }', ${ci.productId}, -1)"
+																	value="-">-</button> --%>
+												                </td>
+												                <td>	
+												                		<fmt:setLocale value="vi_VN" />
+												                		<span class="text-muted text-decoration-line-through">
+																			<fmt:formatNumber  value="${ci.priceUnit}" type="currency" />
+																			
+																		</span>
+																		
+																</td>
+												                <td class="total">$${ci.toltalPriceItem }đ</td>
+												                <td>
+												                   <button type="button" onclick="DeleteItemCart('${base }', ${ci.productId}, -1)" class="remove-product"><i 
+																		class="fa fa-trash "  aria-hidden="true"></i>
+																	</button>
+												                </td>
+											            </tr>
+										           </c:forEach>
+										        </tbody>
+										        <tfoot>
+										        	<tr>
+										        		<th colspan="5">Số thang: <input name="coefficient" type="number" step="any" min="0" value="${cart.coefficient }" class="total_ladder" ></td>
+										        	</tr>
+										        </tfoot>
+										    </table>
+										    <hr>
+										    <div class="row">
+				                                    <div class="col-sm-12 form-group">
+				                                        <label><h4>Trị liệu: </h4></label>
+				                                       
+					                                        <div class="m-b-10">
+					                                            <label class="ui-checkbox ui-checkbox-inline">
+															        <input type="checkbox" name="bamhuyet">
+															        <span class="input-span"></span>Bấm Huyệt
+															    </label>
+															    <label class="ui-checkbox ui-checkbox-inline">
+															        <input type="checkbox" name="xoabop">
+															        <span class="input-span"></span>Xoa bóp
+															    </label>
+															    <label class="ui-checkbox ui-checkbox-inline">
+															        <input type="checkbox" name="chamcuu">
+															        <span class="input-span"></span>Châm cứu
+															    </label>
+															    <label class="ui-checkbox ui-checkbox-inline">
+															        <input type="checkbox" name="khac">
+															        <span class="input-span"></span>Khác
+															    </label>
+					                                        </div>
+					                                    
+				                                        <input name="surcharge" class="form-control" id="surcharge" type="number" value="${cart.surcharge }" placeholder="Nhập Số tiền trị liệu">
+				                                    </div>
+			                                   </div>
+			                                   <hr>
+	                     			<div class="list_product_cart">
+
+													
+												<div class="total_price">
+													<span>Tổng tiền: </span> <span value="tongTien()"
+														id="cart-total" 
+														class="cart-total" 
+														<!-- class="totalPrice" -->
+														$${cart.totalPrice } </span>
+												</div>
+
+
+									</div>
+									
+	                              
                                 </div>
 	                                    </div>
 	                                   </div>
@@ -119,7 +246,8 @@
                                    </div>
                                     <div class="row">
                                     <div class="col-sm-6 form-group">
-                                        <button class="btn btn-default" type="submit">Submit</button>
+                                        <button class="btn btn-primary" type="submit">Lưu</button>
+                                         <a class="btn btn-warning" href="">Hủy</a>
                                     </div>
                                     </div>
                                 </form>
@@ -182,12 +310,12 @@
 											<div class="row">
 												
 												 <div class="col-sm-2">
-												<a
+												<button	type="button"
 													class="btn btn-info"
-													href="${base }/admin/addmedicine/${medicine.id}"
+													onclick="save(${medicine.id},1)"
 													id="show-emp" 
 													> Thêm vào đơn
-												</a>
+												</button>
 												 </div>
 											</div>
 										</td>
@@ -204,151 +332,221 @@
         </div>
     </div>
     <!-- BEGIN THEME CONFIG PANEL-->
-    <div class="theme-config">
-        <div class="theme-config-toggle"><i class="fa fa-cog theme-config-show"></i><i class="ti-close theme-config-close"></i></div>
-        <div class="theme-config-box">
-            <div class="text-center font-18 m-b-20">SETTINGS</div>
-            <div class="font-strong">LAYOUT OPTIONS</div>
-            <div class="check-list m-b-20 m-t-10">
-                <label class="ui-checkbox ui-checkbox-gray">
-                    <input id="_fixedNavbar" type="checkbox" checked>
-                    <span class="input-span"></span>Fixed navbar</label>
-                <label class="ui-checkbox ui-checkbox-gray">
-                    <input id="_fixedlayout" type="checkbox">
-                    <span class="input-span"></span>Fixed layout</label>
-                <label class="ui-checkbox ui-checkbox-gray">
-                    <input class="js-sidebar-toggler" type="checkbox">
-                    <span class="input-span"></span>Collapse sidebar</label>
-            </div>
-            <div class="font-strong">LAYOUT STYLE</div>
-            <div class="m-t-10">
-                <label class="ui-radio ui-radio-gray m-r-10">
-                    <input type="radio" name="layout-style" value="" checked="">
-                    <span class="input-span"></span>Fluid</label>
-                <label class="ui-radio ui-radio-gray">
-                    <input type="radio" name="layout-style" value="1">
-                    <span class="input-span"></span>Boxed</label>
-            </div>
-            <div class="m-t-10 m-b-10 font-strong">THEME COLORS</div>
-            <div class="d-flex m-b-20">
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="Default">
-                    <label>
-                        <input type="radio" name="setting-theme" value="default" checked="">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color bg-white"></div>
-                        <div class="color-small bg-ebony"></div>
-                    </label>
-                </div>
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="Blue">
-                    <label>
-                        <input type="radio" name="setting-theme" value="blue">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color bg-blue"></div>
-                        <div class="color-small bg-ebony"></div>
-                    </label>
-                </div>
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="Green">
-                    <label>
-                        <input type="radio" name="setting-theme" value="green">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color bg-green"></div>
-                        <div class="color-small bg-ebony"></div>
-                    </label>
-                </div>
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="Purple">
-                    <label>
-                        <input type="radio" name="setting-theme" value="purple">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color bg-purple"></div>
-                        <div class="color-small bg-ebony"></div>
-                    </label>
-                </div>
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="Orange">
-                    <label>
-                        <input type="radio" name="setting-theme" value="orange">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color bg-orange"></div>
-                        <div class="color-small bg-ebony"></div>
-                    </label>
-                </div>
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="Pink">
-                    <label>
-                        <input type="radio" name="setting-theme" value="pink">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color bg-pink"></div>
-                        <div class="color-small bg-ebony"></div>
-                    </label>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="White">
-                    <label>
-                        <input type="radio" name="setting-theme" value="white">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color"></div>
-                        <div class="color-small bg-silver-100"></div>
-                    </label>
-                </div>
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="Blue light">
-                    <label>
-                        <input type="radio" name="setting-theme" value="blue-light">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color bg-blue"></div>
-                        <div class="color-small bg-silver-100"></div>
-                    </label>
-                </div>
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="Green light">
-                    <label>
-                        <input type="radio" name="setting-theme" value="green-light">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color bg-green"></div>
-                        <div class="color-small bg-silver-100"></div>
-                    </label>
-                </div>
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="Purple light">
-                    <label>
-                        <input type="radio" name="setting-theme" value="purple-light">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color bg-purple"></div>
-                        <div class="color-small bg-silver-100"></div>
-                    </label>
-                </div>
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="Orange light">
-                    <label>
-                        <input type="radio" name="setting-theme" value="orange-light">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color bg-orange"></div>
-                        <div class="color-small bg-silver-100"></div>
-                    </label>
-                </div>
-                <div class="color-skin-box" data-toggle="tooltip" data-original-title="Pink light">
-                    <label>
-                        <input type="radio" name="setting-theme" value="pink-light">
-                        <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                        <div class="color bg-pink"></div>
-                        <div class="color-small bg-silver-100"></div>
-                    </label>
-                </div>
-            </div>
-        </div>
-    </div>
+    <jsp:include page="/WEB-INF/views/admin/core/themeConfig.jsp"></jsp:include>
     <!-- END THEME CONFIG PANEL-->
     <!-- BEGIN PAGA BACKDROPS-->
     <div class="sidenav-backdrop backdrop"></div>
    
     <!-- END PAGA BACKDROPS-->
     <!-- CORE PLUGINS-->
-    <script src="${base}/admin/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
-    <script src="${base}/admin/assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
-    <script src="${base}/admin/assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="${base}/admin/assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
-    <script src="${base}/admin/assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <jsp:include page="/WEB-INF/views/admin/core/corePlugin.jsp"></jsp:include>
+   
     <!-- PAGE LEVEL PLUGINS-->
-    <script src="${base}/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
+   
     <!-- CORE SCRIPTS-->
     <script src="assets/js/app.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
+   
     <script type="text/javascript">
+    /* Udate surcharge  */
+    const surcharge = $('#surcharge');
+    function updateSurcharge() {
+    	let cartTotal = 0;
+	    totalElements.each((index, totalElement) => {
+	      const price = parseInt($(totalElement).prev().text().trim().slice(1));
+	      const quantity = parseInt($(quantityInputs[index]).val());
+	      const total = price * quantity;
+	      $(totalElement).text('$' + total+"đ");
+	      cartTotal += total;
+	      const productId = $(totalElement).parent().data('product-id');
+	     /*  UpdateSurchargeCart('${base }',ladder, surchargePrice); */
+	    });
+    	
+    	const ladder = $(totalLadders).val();
+		const surchargePrice =  $(surcharge).val();  
+    	const totalPriceCaculated = ladder * cartTotal + parseInt(surchargePrice);
+    	UpdateSurchargeAndCoefficentCart('${base }',ladder, surchargePrice);
+    	cartTotalElement.text('$' + totalPriceCaculated);
+    }
+    surcharge.on('input',updateSurcharge);
+    /* /ajax/updateCoefficentCart */
+    function UpdateSurchargeAndCoefficentCart(baseUrl, coefficient, surcharge) {
+    	
+    	// javascript object.  data la du lieu ma day len action cua controller
+    	let data = {
+    			coefficient: coefficient, 	
+    			surcharge: surcharge
+    	};
+    	
+    	// $ === jQuery
+    	// json == javascript object
+    	jQuery.ajax({
+    		url: baseUrl + "/ajax/updateCoefficentCart ", //->action
+    		type: "post",
+    		contentType: "application/json",
+    		data: JSON.stringify(data),
+
+    		dataType: "json", // kieu du lieu tra ve tu controller la json
+    		success: function(jsonResult) {
+    			// tăng số lượng sản phẩm trong giỏ hàng trong icon
+    			$( "#quanlity_" + productId ).html(jsonResult.currentProductQuality);
+    			$( ".totalPrice" ).html(jsonResult.totalPrice);
+    			$("#totalPriceItem_"+productId).html("Price:$"+jsonResult.currentPriceItem)+"đ";
+    			$( "#tamTinh" ).html(jsonResult.totalPrice);
+    		},
+    		error: function(jqXhr, textStatus, errorMessage) {
+    			
+    		}
+    	});
+    }
+    /*End */
+    
+    /* Udate total ladders  */
+   	const totalLadders = $('.total_ladder');
+    function updateLadders() {
+    	let cartTotal = 0;
+	    totalElements.each((index, totalElement) => {
+	      const price = parseInt($(totalElement).prev().text().trim().slice(1));
+	      const quantity = parseInt($(quantityInputs[index]).val());
+	      const total = price * quantity;
+	      $(totalElement).text('$' + total+"đ");
+	      cartTotal += total;
+	      const productId = $(totalElement).parent().data('product-id');
+	     
+	    });
+    	
+	    const ladder = $(totalLadders).val();
+		const surchargePrice =  $(surcharge).val();  
+    	const totalPriceCaculated = ladder * cartTotal + parseInt(surchargePrice);
+    	UpdateSurchargeAndCoefficentCart('${base }',ladder, surchargePrice);
+    	cartTotalElement.text('$' + totalPriceCaculated);
+    }
+    totalLadders.on('input',updateLadders);
+    /* End  */
+    
+    /* Update quantity of item in cart */
+   	  const quantityInputs = $('.quantity-input');
+	  const totalElements = $('.total');
+	  const cartTotalElement = $('#cart-total');
+	
+	  function updateTotal() {
+	    let cartTotal = 0;
+	    totalElements.each((index, totalElement) => {
+	      const price = parseInt($(totalElement).prev().text().trim().slice(1));
+	      const quantity = parseInt($(quantityInputs[index]).val());
+	      /* console.log($(totalElement).prev().text().trim().slice(1));  */
+	      const total = price * quantity;
+	      $(totalElement).text('$' + total+"đ");
+	      cartTotal += total;
+	      const productId = $(totalElement).parent().data('product-id');
+	      UpdateQuanlityCart('${base }',productId, quantity);
+	    });
+	   /*  cartTotalElement.text('$' + cartTotal); */
+	
+    	
+    	const ladder = $(totalLadders).val();
+		const surchargePrice =  $(surcharge).val();  
+    	const totalPriceCaculated = ladder * cartTotal + parseInt(surchargePrice);
+		
+    	cartTotalElement.text('$' + totalPriceCaculated);
+	  }
+	  quantityInputs.on('input', updateTotal);
+    
+	  save = function(productId, quanlity) {
+    	
+		let data = {
+				productId:productId,
+				quanlity:quanlity,
+				
+				
+			};
+			
+			// $ === jQuery
+			// json == javascript object
+			jQuery.ajax({
+				url : "/addMedicineToOrder/{productId}",
+				type : "post",
+				contentType : "application/json",
+				data : JSON.stringify(data),
+				
+				
+				dataType : "json", // kieu du lieu tra ve tu controller la json
+				success : function(jsonResult) {
+					let totalItems=jsonResult.totalItems;
+				
+					$("#totalCartItemId").html(totalItems);
+					
+					location.reload(); 
+				},
+				error : function(jqXhr, textStatus, errorMessage) { // error callback 
+					alert("error");
+				}
+			});
+		}
+    function UpdateQuanlityCart(baseUrl, productId, quanlity) {
+    	
+    	// javascript object.  data la du lieu ma day len action cua controller
+    	let data = {
+    		productId: productId, // lay theo id	
+    		quanlity: quanlity
+    	};
+    	
+    	// $ === jQuery
+    	// json == javascript object
+    	jQuery.ajax({
+    		url: baseUrl + "/ajax/updateQuanlityCart", //->action
+    		type: "post",
+    		contentType: "application/json",
+    		data: JSON.stringify(data),
+
+    		dataType: "json", // kieu du lieu tra ve tu controller la json
+    		success: function(jsonResult) {
+    			// tăng số lượng sản phẩm trong giỏ hàng trong icon
+    			$( "#quanlity_" + productId ).html(jsonResult.currentProductQuality);
+    			$( ".totalPrice" ).html(jsonResult.totalPrice);
+    			$("#totalPriceItem_"+productId).html("Price:$"+jsonResult.currentPriceItem)+"đ";
+    			$( "#tamTinh" ).html(jsonResult.totalPrice);
+    		},
+    		error: function(jqXhr, textStatus, errorMessage) {
+    			
+    		}
+    	});
+    }
+
+    	
+    function DeleteItemCart(baseUrl, productId, quanlity) {
+    	
+    	// javascript object.  data la du lieu ma day len action cua controller
+    	let data = {
+    		productId: productId, // lay theo id	
+    		quanlity: quanlity
+    	};
+    	
+    	// $ === jQuery
+    	// json == javascript object
+    	jQuery.ajax({
+    		url: baseUrl + "/ajax/deleteItemCart", //->action
+    		type: "post",
+    		contentType: "application/json",
+    		data: JSON.stringify(data),
+
+    		dataType: "json", // kieu du lieu tra ve tu controller la json
+    		success: function(jsonResult) {
+    			// tăng số lượng sản phẩm trong giỏ hàng trong icon
+    			$( "#quanlity_" + productId ).html(jsonResult.currentProductQuality);
+    			$( ".totalPrice" ).html(jsonResult.totalPrice);
+    			
+    			$( "#tamTinh" ).html(jsonResult.totalPrice);
+    		 location.reload();  
+    		},
+    		error: function(jqXhr, textStatus, errorMessage) {
+    			
+    		}
+    	});
+    }
+    /*End */
+    
+    
         $(function() {
             $('#example-table').DataTable({
                 pageLength: 10,
@@ -364,4 +562,94 @@
         })
     </script>
 </body>
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+
+  margin-bottom: 24px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid #ddd;
+}
+
+td {
+
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+td input {
+  width: 80px;
+
+
+  text-align: center;
+}
+
+button {  
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+form {
+
+}
+
+label {
+  
+  margin-right: 12px;
+}
+
+input[type="text"],
+input[type="number"] {
+ 
+ 
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+input[type="submit"] {
+  padding: 6px 12px;
+  
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+p {
+  
+  margin-top: 24px;
+}
+.total_ladder{
+	 text-align: center;
+	 width: 80%;
+}
+
+</style>
 </html>

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class DashBoardController {
-	@RequestMapping(value= {"/admin/index"}, method =RequestMethod.GET )
+	@RequestMapping(value= {"/admin"}, method =RequestMethod.GET )
 	public String index(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response ) throws IOException{
 		
 		return "/admin/index";

@@ -21,30 +21,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.hanu.clinicManagementSystem.dto.user.SaleOrder;
 import edu.hanu.clinicManagementSystem.entities.admin.Medicine;
 import edu.hanu.clinicManagementSystem.entities.user.User;
+import edu.hanu.clinicManagementSystem.service.admin.SaleOrderService;
 import edu.hanu.clinicManagementSystem.service.admin.UserService;
 
 @Controller
 public class AdminManageUserController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private SaleOrderService saleOrderService;
 	
 	@RequestMapping(value= {"/admin/user"}, method =RequestMethod.GET )
 	public String userManage(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response ) throws IOException{		
 	
-		List<User> users = userService.findAllActive();		
+		List<User> users = userService.findAllActive();
+		
 		model.addAttribute("users",users);
 		return "/admin/ManageUser";
 	}
 	
-	@RequestMapping(value= {"/admin/user/a"}, method =RequestMethod.GET )
-	public String profileUser(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response ) throws IOException{		
-	
+//	@RequestMapping(value= {"/admin/user/a"}, method =RequestMethod.GET )
+//	public String profileUser(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response ) throws IOException{		
+//	
 //		List<Medicine> medicines = medicineService.findAllActive();		
 //		model.addAttribute("medicines",medicines);
-		return "/user/UserProfile";
-	}
+//		return "/user/UserProfile";
+//	}
 	@RequestMapping(value= {"/admin/user/{id}"}, method = RequestMethod.GET )
 	public String manageUserDetail(final Model model, 
 								   final HttpServletRequest request,
@@ -55,7 +60,11 @@ public class AdminManageUserController {
 		// lấy product trong db theo ID
 		User userInDbs = userService.getById(id);
 		model.addAttribute("user", userInDbs);
-		
+		List<SaleOrder> saleOrder = saleOrderService.getOrderOfUser(id);
+//		for (SaleOrder saleOrder2 : saleOrder) {
+//			System.out.println(saleOrder2.getTotal());
+//		}
+		model.addAttribute("userOrders", saleOrder);
 		return "/user/UserProfile";
 		
 	}
@@ -128,8 +137,8 @@ public class AdminManageUserController {
 		
 		if (user.getId() == null || user.getId() <= 0) {
 			User userInDbs = userService.getById(user.getId());
-			user.setUsername(userInDbs.getUsername());
-			user.setPassword(userInDbs.getPassword());
+//			user.setUsername(userInDbs.getUsername());
+//			user.setPassword(userInDbs.getPassword());
 			userService.add(user, productAvatar, productPictures);
 			
 		}
@@ -137,8 +146,8 @@ public class AdminManageUserController {
 		else
 		{ 	
 			User userInDbs = userService.getById(user.getId());
-			user.setUsername(userInDbs.getUsername());
-			user.setPassword(userInDbs.getPassword());
+//			user.setUsername(userInDbs.getUsername());
+//			user.setPassword(userInDbs.getPassword());
 			userService.update(user,productAvatar,productPictures);
 
 		}

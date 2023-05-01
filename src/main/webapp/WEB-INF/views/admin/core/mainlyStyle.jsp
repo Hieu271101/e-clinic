@@ -16,6 +16,7 @@
 	rel="stylesheet" />
 	<link href="${base}/admin/assets/vendors/themify-icons/css/themify-icons.css"
 	rel="stylesheet" />
+	<link href="${base}/admin/assets/vendors/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
 	<link href="${base}/admin/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
 	<link href="${base}/admin/assets/vendors/summernote/dist/summernote.css"
 	rel="stylesheet" />
