@@ -28,7 +28,7 @@
 
 				<div class="ibox">
 					<div class="ibox-head">
-						<div class="ibox-title">Sửa tài khoản: ${newUser.username }</div>
+						<div class="ibox-title">Sửa tài khoản: </div>
 
 					</div>
 					<div class="ibox-body">
@@ -78,7 +78,7 @@
                            				  <div class="col-sm-10">
 										 <sf:input path="dob"
 											class="form-control" type="date" id="date" name="date"
-											value="2023-03-26"/>
+											value="${newUser.dob }"/>
 										</div>
 							</div>
                              <div class="form-group row">

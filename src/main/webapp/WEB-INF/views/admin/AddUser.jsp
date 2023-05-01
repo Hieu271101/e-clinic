@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width initial-scale=1.0">
-<title>Admin Add User</title>
+<title>Thông tin bệnh nhân</title>
 <!-- GLOBAL MAINLY STYLES-->
 <jsp:include page="/WEB-INF/views/admin/core/mainlyStyle.jsp"></jsp:include>
 <!-- PAGE LEVEL STYLES-->
@@ -57,7 +57,7 @@
                              <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Số điện thoại</label>
                                 <div class="col-sm-10">
-                                    <sf:input class="form-control" id="ex-phone2" type="text" path="phone" placeholder="Nhập số điện thoại"/>
+                                    <sf:input class="form-control" name="phone" id="ex-phone2" type="text" path="phone" placeholder="Nhập số điện thoại"/>
                                     <span class="help-block">Data format +84 000 000 000</span>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                            				  <div class="col-sm-10">
 										 <sf:input path="dob"
 											class="form-control" type="date" id="date" name="date"
-											value="2023-03-26"/>
+											value="1960-03-26"/>
 										</div>
 							</div>
                              <div class="form-group row">
@@ -91,7 +91,7 @@
                              <div class="form-group row">
                             		 <label class="col-sm-2 col-form-label">Avatar</label>
                            			 <div class="col-sm-10">
-									 <input id="fileProductAvatar"  name="productAvatar"  type="file" class="form-control">
+									 <input id="fileProductAvatar" accept="image/*" name="productAvatar"  type="file" class="form-control">
 								<br>
 								<%-- <div class="form-group">
 
@@ -148,11 +148,16 @@
 		type="text/javascript"></script>
 	<!-- PAGE LEVEL SCRIPTS-->
 	<script type="text/javascript">
+		$.validator.addMethod("containsAlphabet", function(value, element) {
+		  return /[a-zA-Z]/.test(value);
+		}, "Please enter at least one alphabetical character.");
+
 		$("#form-sample-1").validate({
 			rules : {
 				
 				name : {
 					minlength : 2,
+					 containsAlphabet: true,
 					required : !0
 				},
 				email : {
