@@ -30,12 +30,18 @@
                 <div class="ibox">
                     <div class="ibox-head">
                        <div class="ibox-title">Quản lý bệnh nhân</div>
+                       
 								<div class="ibox-tools">
 									<a class="ibox-collapse"><i class="fa fa-minus"></i></a> <a
 										class="fullscreen-link"><i class="fa fa-expand"></i></a>
 								</div>
                     </div>
                     <div class="ibox-body">
+                    		<c:if test="${not empty SuccessAlert}">
+								<div class="alert alert-primary">
+									<strong>${SuccessAlert }</strong>                               
+		                        </div>
+							</c:if>
                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
@@ -89,9 +95,9 @@
 											<div class="col-sm-1">
 												<a
 													class="btn btn-warning"
-													href="${base }/order/${user.id}"
+													href="${base }/admin/order/${user.id}"
 													id="show-emp" 
-													> Khám
+													> Kê đơn
 												</a>
 											</div>		
 											<div class="col-sm-2">

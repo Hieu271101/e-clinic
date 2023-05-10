@@ -401,6 +401,12 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Mật khẩu Hiện tại</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="currentpassword" type="password" name="currentpassword" placeholder="Mật khẩu hiện tại">
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Mật khẩu</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" id="password" type="password" name="password" placeholder="Mật khẩu">
@@ -579,32 +585,47 @@
     <script src="${base}/admin/assets/js/app.min.js" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
     <script type="text/javascript">
+    $.validator.addMethod("containsAlphabet", function(value, element) {
+    	  var result = false;
+    	  validatePassword(${user.id}, value, function(result) {
+    	    if (result) {
+    	      // Password is valid, set result to true
+    	      result = true;
+    	    }
+    	  });
+    	  return result;
+    	}, "Mật khẩu không chính xác");
+
+    	function validatePassword(id, password, callback) {
+    	  let data = {
+    	    id: id,
+    	    password: password
+    	  };
+
+    	  jQuery.ajax({
+    	    url: "/ajax/checkPassword",
+    	    type: "post",
+    	    contentType: "application/json",
+    	    data: JSON.stringify(data),
+    	    dataType: "json",
+    	    success: function(jsonResult) {
+    	      var result = jsonResult.result;
+    	      callback(result);
+    	    },
+    	    error: function(jqXhr, textStatus, errorMessage) {
+    	      // Handle errors here
+    	    }
+    	  });
+    	}
+
         $("#form-sample-1").validate({
             rules: {
-                name: {
+                currentpassword: {
                     minlength: 2,
+                    containsAlphabet: true,
                     required: !0
                 },
-                email: {
-                    required: !0,
-                    email: !0
-                },
-                url: {
-                    required: !0,
-                    url: !0
-                },
-                number: {
-                    required: !0,
-                    number: !0
-                },
-                min: {
-                    required: !0,
-                    minlength: 3
-                },
-                max: {
-                    required: !0,
-                    maxlength: 4
-                },
+               
                 password: {
                     required: !0
                 },

@@ -85,6 +85,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="#tab-3" data-toggle="tab"><i class="ti-announcement"></i> Feeds</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="${base }/order/${user.id}" ><i class="ti-plus"></i> Thêm đơn</a>
+                                    </li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="tab-1">
@@ -207,74 +210,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <h4 class="text-info m-b-20 m-t-20"><i class="fa fa-shopping-basket"></i> Latest Orders</h4>
-                                        <table class="table table-striped table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Order ID</th>
-                                                    <th>Customer</th>
-                                                    <th>Amount</th>
-                                                    <th>Status</th>
-                                                    <th width="91px">Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>11</td>
-                                                    <td>@Jack</td>
-                                                    <td>$564.00</td>
-                                                    <td>
-                                                        <span class="badge badge-success">Shipped</span>
-                                                    </td>
-                                                    <td>10/07/2017</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>12</td>
-                                                    <td>@Amalia</td>
-                                                    <td>$220.60</td>
-                                                    <td>
-                                                        <span class="badge badge-success">Shipped</span>
-                                                    </td>
-                                                    <td>10/07/2017</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>13</td>
-                                                    <td>@Emma</td>
-                                                    <td>$760.00</td>
-                                                    <td>
-                                                        <span class="badge badge-default">Pending</span>
-                                                    </td>
-                                                    <td>10/07/2017</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>14</td>
-                                                    <td>@James</td>
-                                                    <td>$87.60</td>
-                                                    <td>
-                                                        <span class="badge badge-warning">Expired</span>
-                                                    </td>
-                                                    <td>10/07/2017</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>15</td>
-                                                    <td>@Ava</td>
-                                                    <td>$430.50</td>
-                                                    <td>
-                                                        <span class="badge badge-default">Pending</span>
-                                                    </td>
-                                                    <td>10/07/2017</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>16</td>
-                                                    <td>@Noah</td>
-                                                    <td>$64.00</td>
-                                                    <td>
-                                                        <span class="badge badge-success">Shipped</span>
-                                                    </td>
-                                                    <td>10/07/2017</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        
                                     </div>
                                     <div class="tab-pane fade" id="tab-2">
                                         <form action="javascript:void(0)">

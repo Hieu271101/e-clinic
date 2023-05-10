@@ -29,13 +29,22 @@
 						<div class="ibox">
 							<div class="ibox-head">
 								<div class="ibox-title">Thêm hóa đơn</div>
+								
 								<div class="ibox-tools">
 									<a class="ibox-collapse"><i class="fa fa-minus"></i></a> <a
 										class="fullscreen-link"><i class="fa fa-expand"></i></a>
 								</div>
+								
 							</div>
 							<div class="ibox-body">
-								<form action="/order/save" method="post"> 
+							<c:if test="${not empty WarningNotification}">
+							<div class="alert alert-danger">
+									<strong>${WarningNotification }</strong>                               
+		                        </div>
+							</c:if>
+							
+
+								<form action="/admin/order/save" method="post"> 
 								   <div class="row">
 										<div class="col-md-6">
 												<div class="row">
@@ -195,7 +204,7 @@
 										        	</tr>
 										        </tfoot>
 										    </table>
-										    <hr>
+										<%--     <hr>
 										    <div class="row">
 				                                    <div class="col-sm-12 form-group">
 				                                        <label><h4>Trị liệu: </h4></label>
@@ -222,7 +231,13 @@
 				                                        <input name="surcharge" class="form-control" id="surcharge" type="number" value="${cart.surcharge }" placeholder="Nhập Số tiền trị liệu">
 				                                    </div>
 			                                   </div>
-			                                   <hr>
+			                                   <hr> --%>
+			                                     <div class="row">
+			                                     	 <div class="col-sm-12 form-group">
+						                                    <label>Phụ phí:</label>
+						                                    <input name="surcharge" value=0 class="form-control" id="surcharge" type="number" value="${cart.surcharge }" placeholder="Nhập Số tiền phụ phí">
+	                     							</div>
+	                     						</div>
 	                     			<div class="list_product_cart">
 
 													
@@ -247,7 +262,7 @@
                                     <div class="row">
                                     <div class="col-sm-6 form-group">
                                         <button class="btn btn-primary" type="submit">Lưu</button>
-                                         <a class="btn btn-warning" href="">Hủy</a>
+                                         <a class="btn btn-warning" href="${base }/admin/order/cancel">Hủy</a>
                                     </div>
                                     </div>
                                 </form>

@@ -22,8 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.hanu.clinicManagementSystem.dto.user.CartItems;
 import edu.hanu.clinicManagementSystem.dto.user.Carts;
@@ -44,11 +43,24 @@ public class AdminManageOrderController {
 	@Autowired
 	private SaleOrderService saleOrderService;
 	
+	@RequestMapping(value = { "/admin/order/cancel" }, method = RequestMethod.GET)
+	public String cancelCart(final Model model, 
+			   final HttpServletRequest request, 
+			   final HttpServletResponse response
+			   ) throws IOException {
+		HttpSession session=request.getSession();
+		session.setAttribute("cart", null);
+		session.setAttribute("totalItems", 0);
+		List<User> users = userService.findAllActive();
+		
+		model.addAttribute("users",users);
+		return "admin/ManageUser";
+	}
 	
-	@RequestMapping(value = { "order/save" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "admin/order/save" }, method = RequestMethod.POST)
 	public String cartFinished(final Model model, 
 								   final HttpServletRequest request, 
-								   final HttpServletResponse response
+								   final HttpServletResponse response,RedirectAttributes redirectAttributes 
 								   ) throws IOException {
 		
 		
@@ -71,23 +83,7 @@ public class AdminManageOrderController {
 		
 		String coefficient = request.getParameter("coefficient");
 		String surcharge = request.getParameter("surcharge");
-//		String 
-		
-//		System.out.println(customerFullName);
-//		System.out.println(customerEmail);
-//		System.out.println(customerPhone);
-//		System.out.println(customerAddress);
-//		System.out.println(customerGender);
-//		System.out.println(customerDob);
-//		System.out.println(customerDescription);
-//		
-//		System.out.println(bamhuyet);
-//		System.out.println(xoabop);
-//		System.out.println(chamcuu);
-//		System.out.println(khac);
-//		
-//		System.out.println(coefficient);
-//		System.out.println(surcharge);
+
 		// tạo hóa đơn + với thông tin khách hàng lấy được
 		SaleOrder saleOrder = new SaleOrder();
 		saleOrder.setUserId(Integer.parseInt(customerId));
@@ -106,6 +102,20 @@ public class AdminManageOrderController {
 		// lấy giỏ hàng
 		HttpSession session = request.getSession();
 		Carts cart = (Carts) session.getAttribute("cart");
+		// check xem sản phẩm còn trong tủ không
+		for (CartItems cartItem : cart.getCartItems()) {
+			
+			Medicine medicineIndbs = medicineService.getById(cartItem.getProductId());
+			if (medicineIndbs.getQuantity() .compareTo(BigDecimal.valueOf(cartItem.getQuanlity())
+					.multiply(BigDecimal.valueOf(Integer.parseInt(coefficient)))) <0 ) {
+//				model.addAttribute("WarningNotification","Sản phẩm: "+medicineIndbs.getName() +" không đủ");
+				redirectAttributes.addFlashAttribute("WarningNotification","Sản phẩm: "+medicineIndbs.getName() +" không đủ");
+				return "redirect:/admin/order/"+customerId;
+				
+			}
+			
+			
+		}
 //		double totalPriceOfCart=0;
 		// lấy sản phẩm trong giỏ hàng
 		double total = 0;
@@ -117,7 +127,12 @@ public class AdminManageOrderController {
 			// sử dụng hàm tiện ích add hoặc remove đới với các quan hệ onetomany
 			saleOrder.addSaleOrderProducts(saleOrderProducts);
 			total = total+cartItem.getPriceUnit().doubleValue()*cartItem.getQuanlity();
-
+			Medicine medicineIndbs = medicineService.getById(cartItem.getProductId());
+//			medicineIndbs.setQuantity(medicineIndbs.getQuantity().subtract(BigDecimal.valueOf(cartItem.getQuanlity())));
+			medicineIndbs.setQuantity(medicineIndbs.getQuantity()
+										.subtract(BigDecimal.valueOf(cartItem.getQuanlity())
+																		.multiply(BigDecimal.valueOf(Integer.parseInt(coefficient)))));
+			
 		}
 		saleOrder.setTotalItemPrice(BigDecimal.valueOf(total));
 		// mul to coefficient
@@ -130,10 +145,8 @@ public class AdminManageOrderController {
 		// thực hiện reset lại giỏ hàng của Session hiện tại
 		session.setAttribute("cart", null);
 		session.setAttribute("totalItems", 0);
-		List<User> users = userService.findAllActive();
-		
-		model.addAttribute("users",users);
-		return "/admin/ManageUser"; // -> đường dẫn tới View.
+		redirectAttributes.addFlashAttribute("SuccessAlert","Đã lưu vào hồ sơ bệnh nhân");
+		return "redirect:/admin/user"; // -> đường dẫn tới View.
 		
 	}
 	
@@ -148,14 +161,14 @@ public class AdminManageOrderController {
 		return "/user/invoice";
 	}
 	
-	@RequestMapping(value= {"/order"}, method =RequestMethod.GET )
+	@RequestMapping(value= {"/admin/order"}, method =RequestMethod.GET )
 	public String orderForm(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response ) throws IOException{		
 	
 		List<Medicine> medicines = medicineService.findAllActive();		
 		model.addAttribute("medicines",medicines);
 		return "/admin/addOrder";
 	}
-	@RequestMapping(value= {"/order/{id}"}, method = RequestMethod.GET )
+	@RequestMapping(value= {"/admin/order/{id}"}, method = RequestMethod.GET )
 	public String orderUser(final Model model, 
 								   final HttpServletRequest request,
 								   final HttpServletResponse response, 

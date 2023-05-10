@@ -36,11 +36,18 @@
 								</div>
 					</div>
 					<div class="ibox-body">
-						<sf:form modelAttribute="newUser" action="${base }/admin/addUser"
+						<c:if test="${not empty WarningNotification}">
+							<div class="alert alert-danger">
+								<strong>${WarningNotification }</strong>                               
+	                        </div>
+						</c:if>
+						
+						<sf:form modelAttribute="newAccount" action="${base }/admin/addAccount"
 							method="post" class="form-horizontal" id="form-sample-1"
 							novalidate="novalidate"
 							enctype="multipart/form-data"
 							>
+						
 							<div class="form-group row">
 								<label class="col-sm-2 col-form-label">Tài khoản</label>
 								<div class="col-sm-10">

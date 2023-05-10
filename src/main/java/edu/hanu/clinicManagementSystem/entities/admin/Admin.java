@@ -1,17 +1,20 @@
 package edu.hanu.clinicManagementSystem.entities.admin;
 
 import java.sql.Date;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import edu.hanu.clinicManagementSystem.entities.BaseEntity;
 
-public class Admin {
 	@Entity
 	@Table(name = "admin")
-	public class User extends BaseEntity {
+	public class Admin extends BaseEntity implements UserDetails{
 		@Column(name = "username", nullable = true)
 		private String username;
 		@Column(name = "password", nullable = true)
@@ -34,12 +37,11 @@ public class Admin {
 		private String img;
 		
 		
-		public User() {
+		
+		public Admin() {
 			super();
 		}
-
-
-		public User(String username, String password, String name, String email, String phone, String gender, Date dob,
+		public Admin(String username, String password, String name, String email, String phone, String gender, Date dob,
 				String address, int roleId, String img) {
 			super();
 			this.username = username;
@@ -53,20 +55,11 @@ public class Admin {
 			this.roleId = roleId;
 			this.img = img;
 		}
-		public String getUserName() {
-			return username;
-		}
-
 		public String getUsername() {
 			return username;
 		}
-
 		public void setUsername(String username) {
 			this.username = username;
-		}
-
-		public void setUserName(String userName) {
-			this.username = userName;
 		}
 		public String getPassword() {
 			return password;
@@ -122,5 +115,31 @@ public class Admin {
 		public void setImg(String img) {
 			this.img = img;
 		}
-	}
+		@Override
+		public Collection<? extends GrantedAuthority> getAuthorities() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		@Override
+		public boolean isAccountNonExpired() {
+			// TODO Auto-generated method stub
+			return true;
+		}
+		@Override
+		public boolean isAccountNonLocked() {
+			// TODO Auto-generated method stub
+			return true;
+		}
+		@Override
+		public boolean isCredentialsNonExpired() {
+			// TODO Auto-generated method stub
+			return true;
+		}
+		@Override
+		public boolean isEnabled() {
+			// TODO Auto-generated method stub
+			return true;
+		}
+		
+		
 }

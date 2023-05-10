@@ -156,7 +156,7 @@
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
                             <a class="dropdown-item" href="${base }/changePassword/3"><i class="fa fa-lock"></i>Đổi mật khẩu</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login.html"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="${base }/logout"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
                     </li>
                 </ul>
@@ -183,13 +183,13 @@
                     <li class="heading">FEATURES</li>
                     <li class="active">
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
-                            <span class="nav-label">Quản lý thuốc</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Quản lý Sản phẩm</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                              <li>
-                                <a href="${base }/admin/medicine">Quản lý thuốc</a>
+                                <a href="${base }/admin/medicine">Sản phẩm</a>
                             </li>
                             <li>
-                                <a href="${base }/admin/addmedicine">Thêm thuốc</a>
+                                <a href="${base }/admin/addmedicine">Thêm sản phẩm</a>
                             </li>
                         </ul>
                     </li>
@@ -206,7 +206,19 @@
                             
                         </ul>
                     </li>
-                    
+                    <li class="active" >
+                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-wrench"></i>
+                            <span class="nav-label">Quản lý Tài khoản</span><i class="fa fa-angle-left arrow"></i></a>
+                        <ul class="nav-2-level collapse ">
+                            <li>
+                                <a class="" href="${base }/admin/account">Quản lý Tài khoản</a> 
+                            </li>
+                            <li>
+                                <a class="" href="${base }/admin/addAccount">Thêm Tài khoản</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>

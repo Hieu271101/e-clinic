@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.hanu.clinicManagementSystem.entities.admin.Admin;
 import edu.hanu.clinicManagementSystem.entities.admin.Medicine;
 import edu.hanu.clinicManagementSystem.entities.user.User;
+import edu.hanu.clinicManagementSystem.service.admin.AdminService;
 import edu.hanu.clinicManagementSystem.service.admin.UserService;
 
 @Controller
@@ -25,8 +27,11 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private AdminService adminService;
 	@RequestMapping(value = "/changePassword", method = RequestMethod.GET)
 	public String changePassword(final Model model, final HttpServletRequest request, final HttpServletResponse response) {
+		
 		return "/user/changePassword";
 	}
 //	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
@@ -39,8 +44,8 @@ public class UserController {
 								   final HttpServletResponse response, 
 								   @PathVariable("id") int id
 								   ) throws IOException {
-		User userInDbs = userService.getById(id); 
-		model.addAttribute("user",userInDbs);
+		Admin adminInDbs = adminService.getById(id); 
+		model.addAttribute("user",adminInDbs);
 		
 
 		return "user/changePassword";
@@ -50,7 +55,7 @@ public class UserController {
 	@RequestMapping(value= {"/changePassword"}, method =RequestMethod.POST )
 	public String addUserPOST(final ModelMap model, final HttpServletRequest request, 
 			final HttpServletResponse response,
-			@ModelAttribute("user") User user
+			@ModelAttribute("user") Admin user
 			)	
 			{		
 //		System.out.println("----------------------------------------------------------------------");
