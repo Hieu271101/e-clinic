@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.hanu.clinicManagementSystem.controllers.BaseController;
 import edu.hanu.clinicManagementSystem.dto.user.CartItems;
 import edu.hanu.clinicManagementSystem.dto.user.Carts;
 import edu.hanu.clinicManagementSystem.dto.user.SaleOrder;
@@ -35,7 +36,7 @@ import edu.hanu.clinicManagementSystem.service.admin.SaleOrderService;
 import edu.hanu.clinicManagementSystem.service.admin.UserService;
 
 @Controller
-public class AdminManageOrderController {
+public class AdminManageOrderController extends BaseController{
 	@Autowired
 	private MedicineService medicineService;
 	@Autowired

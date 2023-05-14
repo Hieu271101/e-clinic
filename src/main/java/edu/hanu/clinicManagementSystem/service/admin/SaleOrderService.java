@@ -27,6 +27,24 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 //		return executeNativeSql(sql);
 //	} 
 //	
+	public List<SaleOrder> getAllOrderByTodayLatest(int day){
+		return getEntitiesByNativeSQL("\r\n"
+							+ "SELECT *\r\n"
+							+ "FROM tbl_saleorder\r\n"
+							+ "WHERE created_date >= CURDATE() - INTERVAL "+ day +" DAY;");
+	}
+	public List<SaleOrder> getAllOrderByMonthLatest(int month){
+		return getEntitiesByNativeSQL("\r\n"
+							+ "SELECT *\r\n"
+							+ "FROM tbl_saleorder\r\n"
+							+ "WHERE created_date >= CURDATE() - INTERVAL "+ month +" MONTH;");
+	}
+	public List<SaleOrder> getAllOrderByYearLatest(int year){
+		return getEntitiesByNativeSQL("\r\n"
+							+ "SELECT *\r\n"
+							+ "FROM tbl_saleorder\r\n"
+							+ "WHERE created_date >= CURDATE() - INTERVAL "+ year +" YEAR;");
+	}
 	@SuppressWarnings("unchecked")
 	public List<SaleOrder> getOrderOfUser(int userId) {
 		Table tbl = clazz().getAnnotation(Table.class);

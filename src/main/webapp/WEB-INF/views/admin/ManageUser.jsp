@@ -42,6 +42,12 @@
 									<strong>${SuccessAlert }</strong>                               
 		                        </div>
 							</c:if>
+							<c:if test="${not empty WarningNotification}">
+								<div class="alert alert-primary">
+									<strong>${WarningNotification }</strong>                               
+		                        </div>
+							</c:if>
+							
                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
@@ -92,7 +98,7 @@
 													> Chi tiết
 												</a>
 											</div>
-											<div class="col-sm-1">
+											<div class="col-sm-2">
 												<a
 													class="btn btn-warning"
 													href="${base }/admin/order/${user.id}"

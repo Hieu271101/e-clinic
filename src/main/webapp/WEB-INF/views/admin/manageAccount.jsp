@@ -77,7 +77,7 @@
                                     <td>${user.dob }</td>
                                  
                                     <td>
-											<div class="row">
+											<%-- <div class="row">
 											<div class="col-sm-2">
 												<a
 													class="btn btn-dark"
@@ -100,7 +100,7 @@
 													onclick="DeleteProduct(${user.id });">Xóa</a>
 											</div>
 												
-											</div>
+											</div> --%>
 										</td>
                                 </tr>
                                 </c:forEach>

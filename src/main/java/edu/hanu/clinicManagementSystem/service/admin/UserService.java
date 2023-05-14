@@ -26,6 +26,24 @@ public class UserService extends BaseService<User> {
 		// TODO Auto-generated method stub
 		return User.class;
 	}
+	public List<User> getAllOrderByDayLatest(int day){
+		return getEntitiesByNativeSQL("\r\n"
+							+ "SELECT *\r\n"
+							+ "FROM user\r\n"
+							+ "WHERE created_date >= CURDATE() - INTERVAL "+ day +" DAY;");
+	}
+	public List<User> getAllOrderByMonthLatest(int month){
+		return getEntitiesByNativeSQL("\r\n"
+							+ "SELECT *\r\n"
+							+ "FROM user\r\n"
+							+ "WHERE created_date >= CURDATE() - INTERVAL "+ month +" MONTH;");
+	}
+	public List<User> getAllOrderByYearLatest(int year){
+		return getEntitiesByNativeSQL("\r\n"
+							+ "SELECT *\r\n"
+							+ "FROM user\r\n"
+							+ "WHERE created_date >= CURDATE() - INTERVAL "+ year +" YEAR;");
+	}
 	@Transactional
 	public User add(User p, MultipartFile productAvatar, MultipartFile[] productPictures) throws IllegalStateException, IOException {
 	    // Check if an avatar was uploaded

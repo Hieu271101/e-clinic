@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.hanu.clinicManagementSystem.controllers.BaseController;
 import edu.hanu.clinicManagementSystem.entities.admin.Admin;
 import edu.hanu.clinicManagementSystem.entities.admin.Medicine;
 import edu.hanu.clinicManagementSystem.entities.user.User;
@@ -23,17 +24,13 @@ import edu.hanu.clinicManagementSystem.service.admin.AdminService;
 import edu.hanu.clinicManagementSystem.service.admin.UserService;
 
 @Controller
-public class UserController {
+public class UserController  extends BaseController{
 	@Autowired
 	private UserService userService;
 	
 	@Autowired
 	private AdminService adminService;
-	@RequestMapping(value = "/changePassword", method = RequestMethod.GET)
-	public String changePassword(final Model model, final HttpServletRequest request, final HttpServletResponse response) {
-		
-		return "/user/changePassword";
-	}
+	
 //	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
 //	public String changePasswordPOST(final Model model, final HttpServletRequest request, final HttpServletResponse response) {
 //		return "/user/changePassword";

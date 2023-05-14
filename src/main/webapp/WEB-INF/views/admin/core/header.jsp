@@ -11,7 +11,7 @@
             <div class="page-brand">
                 <a class="link" href="index.html">
                     <span class="brand">Admin
-                        <span class="brand-tip">CAST</span>
+                        <span class="brand-tip"></span>
                     </span>
                     <span class="brand-mini">AC</span>
                 </a>
@@ -35,9 +35,9 @@
                 <!-- START TOP-RIGHT TOOLBAR-->
                 <ul class="nav navbar-toolbar">
                     <li class="dropdown dropdown-inbox">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i>
+                      <!--   <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i>
                             <span class="badge badge-primary envelope-badge">9</span>
-                        </a>
+                        </a> -->
                         <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media">
                             <li class="dropdown-menu-header">
                                 <div>
@@ -96,7 +96,7 @@
                         </ul>
                     </li>
                     <li class="dropdown dropdown-notification">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o rel"><span class="notify-signal"></span></i></a>
+                       <!--  <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o rel"><span class="notify-signal"></span></i></a> -->
                         <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media">
                             <li class="dropdown-menu-header">
                                 <div>
@@ -148,13 +148,13 @@
                     </li>
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
-                            <img src="./assets/img/admin-avatar.png" />
-                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                            <img src="/upload/${userLogined.img }" />
+                            <span></span>${userLogined.name }<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
                             <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a> 
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
-                            <a class="dropdown-item" href="${base }/changePassword/3"><i class="fa fa-lock"></i>Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="${base }/admin/changePassword"><i class="fa fa-lock"></i>Đổi mật khẩu</a>
                             <li class="dropdown-divider"></li>
                             <a class="dropdown-item" href="${base }/logout"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
@@ -169,10 +169,11 @@
             <div id="sidebar-collapse">
                 <div class="admin-block d-flex">
                     <div>
-                        <img src="./assets/img/admin-avatar.png" width="45px" />
+                    	
+                        <img  src="${base }/upload/${userLogined.img}"  width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong">James Brown</div><small>Administrator</small></div>
+                        <div class="font-strong">${userLogined.name}</div><small>Administrator</small></div>
                 </div>
                 <ul class="side-menu metismenu">
                     <li class="active">
@@ -199,6 +200,9 @@
                         <ul class="nav-2-level collapse ">
                             <li>
                                 <a class="" href="${base }/admin/user">Quản lý bệnh nhân</a>
+                            </li>
+                            <li>
+                                <a class="" href="${base }/admin/manageOrder">Hồ sơ tổng hợp</a>
                             </li>
                             <li>
                                 <a class="" href="${base }/admin/addUser">Thêm bệnh nhân</a>

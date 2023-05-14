@@ -1,6 +1,6 @@
 package edu.hanu.clinicManagementSystem.controllers.admin;
 
-import java.io.IOException;
+import java.io.IOException; 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,20 +23,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-
-
+import edu.hanu.clinicManagementSystem.controllers.BaseController;
 import edu.hanu.clinicManagementSystem.entities.admin.Admin;
 import edu.hanu.clinicManagementSystem.entities.admin.Medicine;
+import edu.hanu.clinicManagementSystem.entities.user.User;
 import edu.hanu.clinicManagementSystem.service.admin.AdminService;
 import edu.hanu.clinicManagementSystem.service.admin.MedicineService;
 
 @Controller
-public class AdminManageAccount {
-	@Autowired
-	private MedicineService medicineService;
+public class AdminManageAccount  extends BaseController {
+	
 	@Autowired
 	private AdminService adminService;
+	
+	@Autowired
+	private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public AdminManageAccount(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 	
 	@RequestMapping(value= {"/admin/account"}, method =RequestMethod.GET )
 	public String account(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response ) throws IOException{		
@@ -57,8 +69,8 @@ public class AdminManageAccount {
 										  final HttpServletResponse response, 
 										  @ModelAttribute("newAccount") Admin admin
 
-//										  ,@RequestParam("productAvatar") MultipartFile productAvatar
-//										  ,@RequestParam("productPictures") MultipartFile[] productPictures
+										  ,@RequestParam("productAvatar") MultipartFile productAvatar
+										  ,@RequestParam("productPictures") MultipartFile[] productAvatars
 	) throws Exception {
 		
 //		adminService.saveOrUpdate(admin);
@@ -67,12 +79,14 @@ public class AdminManageAccount {
 			
 			return "/admin/addAccount";
 		}else {
+			
+			
 			Date date=new Date();
 			date=java.util.Calendar.getInstance().getTime();
 			admin.setCreatedDate(date);
 			admin.setPassword(new BCryptPasswordEncoder(4).encode(admin.getPassword()));
 			//add user vào database
-			adminService.saveOrUpdate(admin);
+			adminService.add(admin, productAvatar, productAvatars);
 			
 			
 //			User userInDbs=userService.getById(newAccount.getId());
@@ -99,7 +113,38 @@ public class AdminManageAccount {
 			}
 			return false;
 		}
-	
+	@RequestMapping(value = "/admin/changePassword", method = RequestMethod.GET)
+	public String changePassword(final Model model, final HttpServletRequest request, final HttpServletResponse response) {
+			
+		return "/user/changePassword";
+	}
+	@RequestMapping(value = "/admin/changePassword", method = RequestMethod.POST)
+	public String changePassword(
+            @RequestParam("oldPassword") String oldPassword,
+            @RequestParam("newPassword") String newPassword,
+            @RequestParam("confirmPassword") String confirmPassword,
+            Model model
+    ) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUsername = authentication.getName();
+        
+     
+        // Perform password change logic here
+        Admin adminInDbs = adminService.loadUserByUsername(currentUsername);
+       
+        if(passwordEncoder.matches(oldPassword, adminInDbs.getPassword() )) {
+        	 adminInDbs.setPassword(new BCryptPasswordEncoder(4).encode(newPassword));
+        	 adminService.saveOrUpdate(adminInDbs);
+        	 model.addAttribute("message", "Đã đổi mật khẩu");
+        	
+        }else {
+			adminInDbs.setPassword(new BCryptPasswordEncoder(4).encode(newPassword));
+			
+			 model.addAttribute("message", "Sai mật khẩu hiện tại");
+		}
+
+        return "/user/changePassword";
+    }
 	@RequestMapping(value= {"/admin/account/{id}"}, method = RequestMethod.GET )
 	public String adminProductDetail(final Model model, 
 								   final HttpServletRequest request,

@@ -52,7 +52,7 @@
                                 <p class="text-left">Địa chỉ: ${user.address } </p>
                             </div>
                         </div>
-                        <div class="ibox">
+                        <!-- <div class="ibox">
                             <div class="ibox-body">
                                 <div class="row text-center m-b-20">
                                     <div class="col-4">
@@ -70,7 +70,7 @@
                                 </div>
                                
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-lg-9 col-md-8">
                         <div class="ibox">
@@ -86,7 +86,7 @@
                                         <a class="nav-link" href="#tab-3" data-toggle="tab"><i class="ti-announcement"></i> Feeds</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="${base }/order/${user.id}" ><i class="ti-plus"></i> Thêm đơn</a>
+                                        <a class="nav-link" href="${base }/admin/order/${user.id}" ><i class="ti-plus"></i> Thêm đơn</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
@@ -121,7 +121,7 @@
                                             </tbody>
                                         </table>
                                     
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="col-md-6" style="border-right: 1px solid #eee;">
                                                 <h5 class="text-info m-b-20 m-t-10"><i class="fa fa-bar-chart"></i> Month Statistics</h5>
                                                 <div class="h2 m-0">$12,400<sup>.60</sup></div>
@@ -209,7 +209,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         
                                     </div>
                                     <div class="tab-pane fade" id="tab-2">

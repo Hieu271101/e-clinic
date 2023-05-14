@@ -28,14 +28,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-
-
+import edu.hanu.clinicManagementSystem.controllers.BaseController;
 import edu.hanu.clinicManagementSystem.entities.admin.Medicine;
 import edu.hanu.clinicManagementSystem.service.PagerData;
 import edu.hanu.clinicManagementSystem.service.admin.MedicineService;
 
 @Controller
-public class AdminManageMedicineController {
+public class AdminManageMedicineController extends BaseController {
 
 	@Autowired
 	private MedicineService medicineService;

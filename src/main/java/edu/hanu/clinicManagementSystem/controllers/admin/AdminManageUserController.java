@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.hanu.clinicManagementSystem.controllers.BaseController;
 import edu.hanu.clinicManagementSystem.dto.user.SaleOrder;
 import edu.hanu.clinicManagementSystem.entities.admin.Medicine;
 import edu.hanu.clinicManagementSystem.entities.user.User;
@@ -28,7 +29,7 @@ import edu.hanu.clinicManagementSystem.service.admin.SaleOrderService;
 import edu.hanu.clinicManagementSystem.service.admin.UserService;
 
 @Controller
-public class AdminManageUserController {
+public class AdminManageUserController extends BaseController {
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -43,6 +44,13 @@ public class AdminManageUserController {
 		return "/admin/ManageUser";
 	}
 	
+	@RequestMapping(value= {"/admin/manageOrder"}, method =RequestMethod.GET )
+	public String orderManagement(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response ) throws IOException{		
+	
+		List<SaleOrder> saleOrder = saleOrderService.findAllActive();
+		model.addAttribute("userOrders", saleOrder);
+		return "/admin/manageOrder";
+	}
 //	@RequestMapping(value= {"/admin/user/a"}, method =RequestMethod.GET )
 //	public String profileUser(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response ) throws IOException{		
 //	
@@ -61,9 +69,6 @@ public class AdminManageUserController {
 		User userInDbs = userService.getById(id);
 		model.addAttribute("user", userInDbs);
 		List<SaleOrder> saleOrder = saleOrderService.getOrderOfUser(id);
-//		for (SaleOrder saleOrder2 : saleOrder) {
-//			System.out.println(saleOrder2.getTotal());
-//		}
 		model.addAttribute("userOrders", saleOrder);
 		return "/user/UserProfile";
 		
@@ -114,6 +119,7 @@ public class AdminManageUserController {
 //		model.addAttribute("medicines",medicines);
 		
 		if (user.getId() == null || user.getId() <= 0) {
+			
 			userService.add(user, productAvatar, productPictures);
 
 		}

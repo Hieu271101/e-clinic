@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import edu.hanu.clinicManagementSystem.service.user.AccountDetailServiceImpl;
@@ -55,12 +56,18 @@ public class SecureConf extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder(4));
 	}
 	
-//	@Bean
-//	public AuthenticationSuccessHandler authenticationSuccessHandler() {
-//		return new UrlAuthenticationSuccessHandler();
-//	}
-	
+
+	  @Bean
+	    public PasswordEncoder passwordEncoder() {
+	        return new BCryptPasswordEncoder(4);
+	    }
+	  
+//		@Bean
+//		public AuthenticationSuccessHandler authenticationSuccessHandler() {
+//			return new UrlAuthenticationSuccessHandler();
+//		}
 	public static void main(String[] args) {
 		System.out.println(new BCryptPasswordEncoder(4).encode("admin"));
+
 	}
 }

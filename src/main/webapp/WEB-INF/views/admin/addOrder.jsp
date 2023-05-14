@@ -44,7 +44,7 @@
 							</c:if>
 							
 
-								<form action="/admin/order/save" method="post"> 
+								<form action="/admin/order/save" method="post" id="form-sample-1"> 
 								   <div class="row">
 										<div class="col-md-6">
 												<div class="row">
@@ -96,7 +96,7 @@
 			                                   </div>
 			                                   
 			                                    <hr>
-			                                    <div class="row">
+			                                    <!-- <div class="row">
 				                                    <div class="col-sm-6 form-group">
 				                                        
 				                                       
@@ -136,7 +136,7 @@
 					                                    
 				                                      
 				                                    </div>
-			                                   </div>
+			                                   </div> -->
 			                             
 			                                  <div class="row">
 				                                    <div class="col-sm-12 form-group">
@@ -189,7 +189,7 @@
 																		</span>
 																		
 																</td>
-												                <td class="total">$${ci.toltalPriceItem }đ</td>
+												                <td class="total">$${ci.toltalPriceItem }</td>
 												                <td>
 												                   <button type="button" onclick="DeleteItemCart('${base }', ${ci.productId}, -1)" class="remove-product"><i 
 																		class="fa fa-trash "  aria-hidden="true"></i>
@@ -363,6 +363,29 @@
     <!-- PAGE LEVEL SCRIPTS-->
    
     <script type="text/javascript">
+    
+    
+    $("#form-sample-1").validate({
+		rules : {
+			
+			coefficient :{
+				required : !0
+			},
+			surcharge:{
+				required : !0
+			},
+			
+		},
+		errorClass : "help-block error",
+		highlight : function(e) {
+			$(e).closest(".form-group.row").addClass("has-error")
+		},
+		unhighlight : function(e) {
+			$(e).closest(".form-group.row").removeClass("has-error")
+		},
+	});
+    
+   
     /* Udate surcharge  */
     const surcharge = $('#surcharge');
     function updateSurcharge() {
@@ -371,7 +394,7 @@
 	      const price = parseInt($(totalElement).prev().text().trim().slice(1));
 	      const quantity = parseInt($(quantityInputs[index]).val());
 	      const total = price * quantity;
-	      $(totalElement).text('$' + total+"đ");
+	      $(totalElement).text('$' + total+"");
 	      cartTotal += total;
 	      const productId = $(totalElement).parent().data('product-id');
 	     /*  UpdateSurchargeCart('${base }',ladder, surchargePrice); */
@@ -406,7 +429,7 @@
     			// tăng số lượng sản phẩm trong giỏ hàng trong icon
     			$( "#quanlity_" + productId ).html(jsonResult.currentProductQuality);
     			$( ".totalPrice" ).html(jsonResult.totalPrice);
-    			$("#totalPriceItem_"+productId).html("Price:$"+jsonResult.currentPriceItem)+"đ";
+    			$("#totalPriceItem_"+productId).html("Price:$"+jsonResult.currentPriceItem)+"";
     			$( "#tamTinh" ).html(jsonResult.totalPrice);
     		},
     		error: function(jqXhr, textStatus, errorMessage) {
@@ -424,7 +447,7 @@
 	      const price = parseInt($(totalElement).prev().text().trim().slice(1));
 	      const quantity = parseInt($(quantityInputs[index]).val());
 	      const total = price * quantity;
-	      $(totalElement).text('$' + total+"đ");
+	      $(totalElement).text('$' + total+"");
 	      cartTotal += total;
 	      const productId = $(totalElement).parent().data('product-id');
 	     
@@ -451,7 +474,7 @@
 	      const quantity = parseInt($(quantityInputs[index]).val());
 	      /* console.log($(totalElement).prev().text().trim().slice(1));  */
 	      const total = price * quantity;
-	      $(totalElement).text('$' + total+"đ");
+	      $(totalElement).text('$' + total+"");
 	      cartTotal += total;
 	      const productId = $(totalElement).parent().data('product-id');
 	      UpdateQuanlityCart('${base }',productId, quantity);
