@@ -155,7 +155,7 @@
 		
 		// $ === jQuery
 		// json == javascript object
-		if (confirm("Bạn có chắc chắn muốn xoác không?")) {
+		if (confirm("Bạn có chắc chắn muốn xoá không?")) {
 		  // user clicked OK
 			jQuery.ajax({
 				url : "/admin/ajax/delete",

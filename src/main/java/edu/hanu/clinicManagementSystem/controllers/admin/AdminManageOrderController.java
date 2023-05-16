@@ -55,7 +55,8 @@ public class AdminManageOrderController extends BaseController{
 		List<User> users = userService.findAllActive();
 		
 		model.addAttribute("users",users);
-		return "admin/ManageUser";
+		return "redirect:/admin/user";
+//		return "admin/ManageUser";
 	}
 	
 	@RequestMapping(value = { "admin/order/save" }, method = RequestMethod.POST)

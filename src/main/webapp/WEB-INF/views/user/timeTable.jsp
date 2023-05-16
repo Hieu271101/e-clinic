@@ -28,7 +28,7 @@
     </div>
     <div class="hidden-bar-wrapper">
         <div class="logo">
-            <a href="index-2.html"><img src="images/brand/zyro-image (1).png" style="width:150px;height:150px;" alt=""/></a>
+            <a href="index-2.html"><img src="${base }/user/images/brand/zyro-image (1).png" style="width:150px;height:150px;" alt=""/></a>
         </div>
         <div class="contact-info-box">
             <h3>Thông Tin Liên Lạc</h3>
@@ -52,7 +52,7 @@
 <!-- End Hidden Bar -->       
 
 <!--Start breadcrumb area-->     
-<section class="breadcrumb-area" style="background-image: url(images/resources/breadcrumb-bg.jpg);">
+<section class="breadcrumb-area" style="background-image: url(${base }/user/images/resources/breadcrumb-bg.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">

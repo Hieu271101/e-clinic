@@ -88,9 +88,9 @@
                     <div class="header-style1-button float-right">
                         <a href="${base }/login">Đăng nhập</a>
                     </div>
-                    <div class="header-style1-button float-right">
+                   <!--  <div class="header-style1-button float-right">
                         <a href="apppointment.html"><span class="icon-date"></span>Tạo lịch hẹn</a>
-                    </div>
+                    </div> -->
                      
                 </div>
             </div>
@@ -167,7 +167,7 @@
     </div>
     <div class="hidden-bar-wrapper">
         <div class="logo">
-            <a href="index-2.html"><img src="images/brand/zyro-image (1).png" style="width:150px;height:150px;" alt=""/></a>
+            <a href="index-2.html"><img src="${base }/user/images/brand/zyro-image (1).png" style="width:150px;height:150px;" alt=""/></a>
         </div>
         <div class="contact-info-box">
             <h3>Thông Tin Liên Lạc</h3>
@@ -197,7 +197,7 @@
             <ul>
                 <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1689" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/slides/v1-1.jpg" data-title="Slide Title" data-transition="parallaxvertical">
 
-                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src=""> 
+                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="${base }/user/"> 
 
                     <div class="tp-caption" 
                     data-paddingbottom="[0,0,0,0]"
@@ -374,7 +374,7 @@
                                         <div class="row mar0">
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 pd0">
                                                 <div class="img-holder">
-                                                    <img src="images/services/Screen Shot 2023-05-10 at 3.18.39 PM.png" style="width:800px;height:650px;" alt="Awesome Image">
+                                                    <img src="${base }/user/images/services/Screen Shot 2023-05-10 at 3.18.39 PM.png" style="width:800px;height:650px;" alt="Awesome Image">
                                                     <div class="before">
                                                         <a href="#">Trước</a>
                                                     </div>
@@ -382,7 +382,7 @@
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 pd0">
                                                 <div class="img-holder">
-                                                    <img src="images/services/Screen Shot 2023-05-10 at 3.18.30 PM.png"style="width:800px;height:650px;" alt="Awesome Image">
+                                                    <img src="${base }/user/images/services/Screen Shot 2023-05-10 at 3.18.30 PM.png"style="width:800px;height:650px;" alt="Awesome Image">
                                                     <div class="after">
                                                         <a href="#">Sau</a>
                                                     </div>
@@ -441,36 +441,6 @@
 <!--Start footer area-->  
 <jsp:include page="/WEB-INF/views/user/core/footer.jsp"></jsp:include>      
 <!--End footer area-->
-
-<!--Start footer bottom area-->
-<section class="footer-bottom-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                <div class="inner clearfix">
-                    <div class="footer-social-links float-left">
-                        <ul class="sociallinks-style-one">
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="copyright-text text-center">
-                        <p></p>
-                    </div>
-                    <ul class="footer-menu float-right">
-                        <li><a href="#">Điều khoản & Điều kiện</a></li>
-                        <li><a href="#">Chính sách bảo mật</a></li>
-                    </ul>
-                </div>   
-            </div>
-        </div>
-    </div>    
-</section>
-<!--End footer bottom area-->     
 
 </div>
 

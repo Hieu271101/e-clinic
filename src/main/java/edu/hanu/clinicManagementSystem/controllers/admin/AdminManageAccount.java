@@ -249,7 +249,7 @@ public class AdminManageAccount  extends BaseController {
           	
           String fileName = productAvatar.getOriginalFilename();
           adminInDbs.setImg("admin/avatar/" + fileName);
-          System.out.println(adminInDbs.getImg());
+        
           model.addAttribute("userLogined", adminInDbs);
 		return "redirect:";
 	}

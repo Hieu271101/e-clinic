@@ -113,7 +113,7 @@
                                     <sf:input class="form-control" type="text" name="address" path="address" placeholder="Nhập địa chỉ"/>
                                 </div>
                             </div>
-                           <div class="form-group row">
+                           <!-- <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Quyền</label>
                                         <div class="col-sm-10">
                                         <select class="form-control">
@@ -122,7 +122,7 @@
                                             
                                         </select>
                                         </div>
-                            </div>
+                            </div> -->
                              <div class="form-group row">
                             		 <label class="col-sm-2 col-form-label">Avatar</label>
                            			 <div class="col-sm-10">

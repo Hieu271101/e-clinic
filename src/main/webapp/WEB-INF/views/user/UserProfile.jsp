@@ -77,9 +77,9 @@
                             <div class="ibox-body">
                                 <ul class="nav nav-tabs tabs-line">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="#tab-1" data-toggle="tab"><i class="ti-bar-chart"></i> Overview</a>
+                                        <a class="nav-link active" href="#tab-1" data-toggle="tab"><i class="ti-bar-chart"></i> Tổng quan</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <%-- <li class="nav-item">
                                         <a class="nav-link" href="#tab-2" data-toggle="tab"><i class="ti-settings"></i> Settings</a>
                                     </li>
                                     <li class="nav-item">
@@ -87,7 +87,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="${base }/admin/order/${user.id}" ><i class="ti-plus"></i> Thêm đơn</a>
-                                    </li>
+                                    </li> --%>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="tab-1">

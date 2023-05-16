@@ -152,7 +152,7 @@
                             --%>
                             <span></span>${userLogined.name }<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="${base }/admin/profile"><i class="fa fa-user"></i>Profile</a>
+                            <%-- <a class="dropdown-item" href="${base }/admin/profile"><i class="fa fa-user"></i>Profile</a> --%>
                             <a class="dropdown-item" href="${base }/admin/settings"><i class="fa fa-cog"></i>Settings</a> 
                             <a class="dropdown-item" href="https://www.facebook.com/profile.php?id=100007831362412"><i class="fa fa-support"></i>Support</a>
                             <a class="dropdown-item" href="${base }/admin/changePassword"><i class="fa fa-lock"></i>Đổi mật khẩu</a>

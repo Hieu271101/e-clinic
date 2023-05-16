@@ -200,7 +200,7 @@
 										        </tbody>
 										        <tfoot>
 										        	<tr>
-										        		<th colspan="5">Số thang: <input name="coefficient" type="number" step="any" min="0" value="${cart.coefficient }" class="total_ladder" ></td>
+										        		<th colspan="5">Số thang: <input name="coefficient" type="number" step="any" min="1" value="${cart.coefficient }" class="total_ladder" ></td>
 										        	</tr>
 										        </tfoot>
 										    </table>
@@ -235,7 +235,7 @@
 			                                     <div class="row">
 			                                     	 <div class="col-sm-12 form-group">
 						                                    <label>Phụ phí:</label>
-						                                    <input name="surcharge" value=0 class="form-control" id="surcharge" type="number" value="${cart.surcharge }" placeholder="Nhập Số tiền phụ phí">
+						                                    <input name="surcharge" min=0 value=0 class="form-control" id="surcharge" type="number" value="${cart.surcharge }" placeholder="Nhập Số tiền phụ phí">
 	                     							</div>
 	                     						</div>
 	                     			<div class="list_product_cart">
@@ -373,6 +373,17 @@
 			},
 			surcharge:{
 				required : !0
+			},
+			
+		},
+		messages: {
+			coefficient : {
+				
+				required : "Không được để trống"
+			},
+			surcharge : {
+				 required : "Không được để trống",
+				 
 			},
 			
 		},
