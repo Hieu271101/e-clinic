@@ -78,9 +78,9 @@
                     <div class="header-style1-button float-right">
                         <a href="${base }/login">Đăng nhập</a>
                     </div>
-                    <div class="header-style1-button float-right">
+                    <!-- <div class="header-style1-button float-right">
                         <a href="apppointment.html"><span class="icon-date"></span>Tạo lịch hẹn</a>
-                    </div>
+                    </div> -->
                      
                 </div>
             </div>

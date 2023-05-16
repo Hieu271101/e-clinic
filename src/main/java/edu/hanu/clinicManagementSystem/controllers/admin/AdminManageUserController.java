@@ -102,22 +102,7 @@ public class AdminManageUserController extends BaseController {
 			@ModelAttribute("newUser") User user,		
 			@RequestParam("productAvatar") MultipartFile productAvatar,
 			@RequestParam("productPictures") MultipartFile[] productPictures) throws IOException{		
-//		System.out.println("----------------------------------------------------------------------");
-//		System.out.println(user.getUserName());
-//		System.out.println(user.getPassword());
-//		System.out.println(user.getAddress());
-//		System.out.println(user.getName());
-//		System.out.println(user.getEmail());
-//		System.out.println(user.getPhone());
-//		System.out.println(user.getGender());
-//		System.out.println(user.getDob());
-//		System.out.println(user.getAddress());
-////		System.out.println(user.getRoleId());
-//		System.out.println(user.getImg());
-//		System.out.println("----------------------------------------------------------------------");
-//		List<Medicine> medicines = medicineService.findAllActive();		
-//		model.addAttribute("medicines",medicines);
-		
+
 		if (user.getId() == null || user.getId() <= 0) {
 			
 			userService.add(user, productAvatar, productPictures);

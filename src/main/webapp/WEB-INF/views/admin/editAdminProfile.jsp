@@ -36,7 +36,7 @@
 								</div>
 					</div>
 					<div class="ibox-body">
-						<sf:form modelAttribute="newUser" action="${base }/admin/addUser"
+						<sf:form modelAttribute="newUser" action="${base }/admin/settings"
 							method="post" class="form-horizontal" id="form-sample-1"
 							novalidate="novalidate"
 							enctype="multipart/form-data"

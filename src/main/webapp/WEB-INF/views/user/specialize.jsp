@@ -12,12 +12,6 @@
 	<title>Chuyên Môn</title>
 
 	<jsp:include page="/WEB-INF/views/user/core/mainStyle.jsp"></jsp:include>
-
-    <!-- Fixing Internet Explorer-->
-    <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <script src="js/html5shiv.js"></script>
-    <![endif]-->
     
 </head>
 
@@ -33,7 +27,7 @@
     </div>
     <div class="hidden-bar-wrapper">
         <div class="logo">
-            <a href="index-2.html"><img src="images/brand/zyro-image (1).png" style="width:150px;height:150px;" alt=""/></a>
+            <a href="index-2.html"><img src="${base }/user/images/brand/zyro-image (1).png" style="width:150px;height:150px;" alt=""/></a>
         </div>
         <div class="contact-info-box">
             <h3>Thông Tin Liên Lạc</h3>
@@ -57,7 +51,7 @@
 <!-- End Hidden Bar -->        
 
 <!--Start breadcrumb area-->     
-<section class="breadcrumb-area" style="background-image: url(images/resources/breadcrumb-bg.jpg);">
+<section class="breadcrumb-area" style="background-image: url(${base }/user/images/resources/breadcrumb-bg.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
@@ -92,7 +86,7 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                 <div class="single-solution-style1 wow fadeInUp" data-wow-delay="300ms">
                     <div class="img-holder">
-                        <img src="images/services/dich-vu-xoa-bop-bam-huyet-tai-nha.jpeg" alt="Awesome Image">
+                        <img src="${base }/user/images/services/dich-vu-xoa-bop-bam-huyet-tai-nha.jpeg" alt="Awesome Image">
                         <div class="icon-holder">
                             <div class="inner-content">
                                 <div class="box">
@@ -118,7 +112,7 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                 <div class="single-solution-style1 wow fadeInUp" data-wow-delay="600ms">
                     <div class="img-holder">
-                        <img src="images/services/43110235_726252807728234_1033423939495264256_n.jpeg" alt="Awesome Image">
+                        <img src="${base }/user/images/services/43110235_726252807728234_1033423939495264256_n.jpeg" alt="Awesome Image">
                         <div class="icon-holder">
                             <div class="inner-content">
                                 <div class="box">
@@ -144,7 +138,7 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                 <div class="single-solution-style1 wow fadeInUp" data-wow-delay="900ms">
                     <div class="img-holder">
-                        <img src="images/services/chi3-15532412194921191178915.jpeg" alt="Awesome Image">
+                        <img src="${base }/user/images/services/chi3-15532412194921191178915.jpeg" alt="Awesome Image">
                         <div class="icon-holder">
                             <div class="inner-content">
                                 <div class="box">
@@ -171,7 +165,7 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                 <div class="single-solution-style1 wow fadeInUp" data-wow-delay="300ms">
                     <div class="img-holder">
-                        <img src="images/services/153945phuc-hoi-chuc-nang.jpeg" alt="Awesome Image">
+                        <img src="${base }/user/images/services/153945phuc-hoi-chuc-nang.jpeg" alt="Awesome Image">
                         <div class="icon-holder">
                             <div class="inner-content">
                                 <div class="box">
@@ -197,7 +191,7 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                 <div class="single-solution-style1 wow fadeInUp" data-wow-delay="600ms">
                     <div class="img-holder">
-                        <img src="images/services/phong-kham-dong-y-uy-tin-o-ha-noi-1.jpeg" alt="Awesome Image">
+                        <img src="${base }/user/images/services/phong-kham-dong-y-uy-tin-o-ha-noi-1.jpeg" alt="Awesome Image">
                         <div class="icon-holder">
                             <div class="inner-content">
                                 <div class="box">
@@ -243,7 +237,7 @@
                     <!--Start Single Testimonial Item-->
                     <div class="single-testimonial-style2 text-center">
                         <div class="img-holder">
-                            <img src="images/brand/moss-clinic-phan-mem-quan-ly-phong-kham-dong-y-tot-nhat-hien-nay.jpeg" style="width:900px;height:550px;" alt="Awesome Image">
+                            <img src="${base }/user/images/brand/moss-clinic-phan-mem-quan-ly-phong-kham-dong-y-tot-nhat-hien-nay.jpeg" style="width:900px;height:550px;" alt="Awesome Image">
                         </div>
                         
                     </div>    
@@ -251,7 +245,7 @@
                     <!--Start Single Testimonial Item-->
                     <div class="single-testimonial-style2 text-center">
                         <div class="img-holder">
-                            <img src="images/brand/Screen Shot 2023-05-09 at 9.07.39 PM.png" style="width:900px;height:550px;" alt="Awesome Image">
+                            <img src="${base }/user/images/brand/Screen Shot 2023-05-09 at 9.07.39 PM.png" style="width:900px;height:550px;" alt="Awesome Image">
                         </div>
            
                     </div>    
@@ -259,7 +253,7 @@
                     <!--Start Single Testimonial Item-->
                     <div class="single-testimonial-style2 text-center">
                         <div class="img-holder">
-                            <img src="images/brand/tu-van-thu-tuc-mo-phong-chan-tri-hoc-co-truyen-5268.jpeg" style="width:900px;height:550px;" alt="Awesome Image">
+                            <img src="${base }/user/images/brand/tu-van-thu-tuc-mo-phong-chan-tri-hoc-co-truyen-5268.jpeg" style="width:900px;height:550px;" alt="Awesome Image">
                         </div>
                     </div>    
                     <!--End Single Testimonial Item-->
@@ -275,126 +269,9 @@
 <jsp:include page="/WEB-INF/views/user/core/footer.jsp"></jsp:include>     
 <!--End footer area-->
 
-<!--Start footer bottom area-->
-<section class="footer-bottom-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                <div class="inner clearfix">
-                    <div class="footer-social-links float-left">
-                        <ul class="sociallinks-style-one">
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="copyright-text text-center">
-                        <p></p>
-                    </div>
-                    <ul class="footer-menu float-right">
-                        <li><a href="#">Điều khoản & Điều kiện</a></li>
-                        <li><a href="#">Chính sách bảo mật</a></li>
-                    </ul>
-                </div>   
-            </div>
-        </div>
-    </div>    
-</section>
-<!--End footer bottom area-->   
-
-</div>
-
-<!--Scroll to top-->
-<div class="scroll-to-top scroll-to-target thm-bg-clr" data-target="html"><span class="fa fa-angle-up"></span></div>
-
-<!-- Color Palate / Color Switcher -->
-<div class="color-palate">
-    <div class="color-trigger">
-        <i class="fa fa-gear"></i>
-    </div>
-    <div class="color-palate-head">
-        <h6>Choose Your Color</h6>
-    </div>
-    <div class="various-color clearfix">
-        <div class="colors-list">
-            <span class="palate default-color active" data-theme-file="css/color-themes/default-theme.css"></span>
-            <span class="palate teal-color" data-theme-file="css/color-themes/teal-theme.css"></span>
-            <span class="palate navy-color" data-theme-file="css/color-themes/navy-theme.css"></span>
-            <span class="palate yellow-color" data-theme-file="css/color-themes/yellow-theme.css"></span>
-            <span class="palate blue-color" data-theme-file="css/color-themes/blue-theme.css"></span>
-            <span class="palate purple-color" data-theme-file="css/color-themes/purple-theme.css"></span>
-            <span class="palate olive-color" data-theme-file="css/color-themes/olive-theme.css"></span>
-            <span class="palate red-color" data-theme-file="css/color-themes/red-theme.css"></span>
-        </div>
-    </div>
-    <div class="palate-foo">
-        <span>You can easily change and switch the colors.</span>
-    </div>
-</div>
-<!-- /.End Of Color Palate -->
-
-<!-- main jQuery -->
-<script src="js/jquery.js"></script>
-<!-- Wow Script -->
-<script src="js/wow.js"></script>
-<!-- bootstrap -->
-<script src="js/bootstrap.min.js"></script>
-<!-- bx slider -->
-<script src="js/jquery.bxslider.min.js"></script>
-<!-- count to -->
-<script src="js/jquery.countTo.js"></script>
-<script src="js/appear.js"></script>
-<!-- owl carousel -->
-<script src="js/owl.js"></script>
-<!-- validate -->
-<script src="js/validation.js"></script>
-<!-- mixit up -->
-<script src="js/jquery.mixitup.min.js"></script>
-<!-- isotope script-->
-<script src="js/isotope.js"></script>
-<!-- Easing -->
-<script src="js/jquery.easing.min.js"></script>
-<!-- Gmap helper -->
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyB2uu6KHbLc_y7fyAVA4dpqSVM4w9ZnnUw"></script>
-<!--Gmap script-->
-<script src="js/gmaps.js"></script>
-<script src="js/map-helper.js"></script>
-<!-- jQuery ui js -->
-<script src="assets/jquery-ui-1.11.4/jquery-ui.js"></script>
-<!-- Language Switche  -->
-<script src="assets/language-switcher/jquery.polyglot.language.switcher.js"></script>
-<!-- jQuery timepicker js -->
-<script src="assets/timepicker/timePicker.js"></script>
-<!-- Bootstrap select picker js -->
-<script src="assets/bootstrap-sl-1.12.1/bootstrap-select.js"></script> 
-<!-- html5lightbox js -->                              
-<script src="assets/html5lightbox/html5lightbox.js"></script>
-<!-- html5lightbox js -->                              
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-<!--Color Switcher-->
-<script src="js/color-settings.js"></script>
-
-<!--Revolution Slider-->
-<script src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
-<script src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
-<script src="js/main-slider-script.js"></script>
-
-<!-- thm custom script -->
-<script src="js/custom.js"></script>
 
 
+<jsp:include page="/WEB-INF/views/user/core/corePlugins.jsp"></jsp:include>  
 
 </body>
 

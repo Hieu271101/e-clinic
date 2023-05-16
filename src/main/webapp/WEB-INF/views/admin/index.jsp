@@ -208,7 +208,7 @@
                                     	<c:forEach items="${newOrder }" var="newOrder">
                                     		<tr>
 	                                            <td>
-	                                                <a href="invoice.html">${newOrder.code }</a>
+	                                                <a href="${base }/admin/invoice/${newOrder.id}">${newOrder.code }</a>
 	                                            </td>
 	                                            <td>${newOrder.customerName }</td>
 	                                            <td>${newOrder.total }</td>
@@ -270,50 +270,63 @@
    
  //Flot Bar Chart
    $(function() {
-	   
-
-	   
-    var barOptions = {
-        series: {
-            bars: {
-                show: true,
-                barWidth: 0.2,
-                align   : 'center',
-                fillColor: {
-                    colors: [{
-                        opacity: 0.6
-                    }, {
-                        opacity: 0.6
-                    }]
+    function renderBarChart(data) {
+        var barOptions = {
+            series: {
+                bars: {
+                    show: true,
+                    barWidth: 0.2,
+                    align: 'center',
+                    fillColor: {
+                        colors: [{
+                            opacity: 0.6
+                        }, {
+                            opacity: 0.6
+                        }]
+                    }
                 }
+            },
+            xaxis: {
+                tickDecimals: 0,
+                mode: 'categories',
+                ticks: ${ticks},
+            },
+            colors: ["#3498db"],
+            grid: {
+                color: "#999999",
+                hoverable: true,
+                clickable: true,
+                tickColor: '#DADDE0',
+                borderWidth: 0
+            },
+            legend: {
+                show: false
+            },
+            tooltip: true,
+            tooltipOpts: {
+                content: "x: %x, y: %y"
             }
-        },
-        xaxis: {
-            tickDecimals: 0,
-            mode: 'categories',
-            ticks: ${ticks},
-        },
-        colors: ["#3498db"],
-        grid: {
-            color: "#999999",
-            hoverable: true,
-            clickable: true,
-            tickColor: '#DADDE0',
-            borderWidth:0
-        },
-        legend: {
-            show: false
-        },
-        tooltip: true,
-        tooltipOpts: {
-            content: "x: %x, y: %y"
-        }
-    };
-    var barData = {
-        label: "bar",
-        data: ${data},
-    };
-    $.plot($("#flot_bar_chart"), [barData], barOptions);
+        };
+        var barData = {
+            label: "bar",
+            data: data,
+        };
+        $.plot($("#flot_bar_chart"), [barData], barOptions);
+    }
+
+    // Initial rendering
+    renderBarChart(${data});
+
+    // Example of updating the graph with new data
+    function updateData(newData) {
+        renderBarChart(newData);
+    }
+
+    // Call the updateData function whenever your data changes
+    // You can pass the updated data as an argument to the function
+
+    // Example usage:
+    // updateData(newData);
 });
 
   

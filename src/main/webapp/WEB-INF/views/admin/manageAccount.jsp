@@ -47,7 +47,7 @@
                                    <th>Giới tính</th>
                                    <th>Ngày sinh</th>
                                   
-                                   <th>Chức năng</th>
+                                   
                                 </tr>
                             </thead>
                             <tfoot>
@@ -60,7 +60,7 @@
                                    <th>Giới tính</th>
                                    <th>Ngày sinh</th>
                                   
-                                   <th>Chức năng</th>
+                                   
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -76,32 +76,7 @@
                                     <td>${user.gender }</td>
                                     <td>${user.dob }</td>
                                  
-                                    <td>
-											<%-- <div class="row">
-											<div class="col-sm-2">
-												<a
-													class="btn btn-dark"
-													href="${base }/admin/user/${user.id }"
-													id="show-emp" 
-													> Chi tiết
-												</a>
-											</div>
-													
-											<div class="col-sm-2">
-												<a
-													class="btn btn-info"
-													href="${base }/admin/account/${user.id }"
-													id="show-emp" 
-													> Sửa
-												</a>
-											</div>
-											<div class="col-sm-2">
-													<a  class="btn btn-warning"  role="button"
-													onclick="DeleteProduct(${user.id });">Xóa</a>
-											</div>
-												
-											</div> --%>
-										</td>
+                                    
                                 </tr>
                                 </c:forEach>
                                

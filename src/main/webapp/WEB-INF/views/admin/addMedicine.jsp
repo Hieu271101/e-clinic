@@ -77,7 +77,7 @@
 
 									<div class="form-group row">
 										<div class="col-sm-12 ml-sm-auto">
-											<button class="btn btn-info"  type="submit">Submit</button>
+											<button class="btn btn-info"  type="submit">Lưu</button>
 										</div>
 									</div>
 

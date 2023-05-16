@@ -214,15 +214,9 @@
                                     </div>
                                     <div class="tab-pane fade" id="tab-2">
                                         <form action="javascript:void(0)">
-                                            <div class="row">
-                                                <div class="col-sm-6 form-group">
-                                                    <label>First Name</label>
-                                                    <input class="form-control" type="text" placeholder="First Name">
-                                                </div>
-                                                <div class="col-sm-6 form-group">
-                                                    <label>Last Name</label>
-                                                    <input class="form-control" type="text" placeholder="First Name">
-                                                </div>
+                                            <div class="form-group">
+                                                <label>Họ và tên</label>
+                                                <input class="form-control" type="text" placeholder="Full name">
                                             </div>
                                             <div class="form-group">
                                                 <label>Email</label>

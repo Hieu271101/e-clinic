@@ -16,7 +16,7 @@
 <!-- PAGE LEVEL STYLES-->
 </head>
 
-<body class="fixed-navbar">
+<body class="fixed-navbar sidebar-mini">
 	<div class="page-wrapper">
 		<!-- START HEADER-->
 		<jsp:include page="/WEB-INF/views/admin/core/header.jsp"></jsp:include>
