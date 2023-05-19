@@ -44,6 +44,8 @@ public class AdminManageOrderController extends BaseController{
 	@Autowired
 	private SaleOrderService saleOrderService;
 	
+	
+	
 	@RequestMapping(value = { "/admin/order/cancel" }, method = RequestMethod.GET)
 	public String cancelCart(final Model model, 
 			   final HttpServletRequest request, 
@@ -161,6 +163,16 @@ public class AdminManageOrderController extends BaseController{
 		SaleOrder saleOrder = saleOrderService.getById(id);		
 		model.addAttribute("saleOrder",saleOrder);
 		return "/user/invoice";
+	}
+	@RequestMapping(value= {"admin/invoice/user/{id}"}, method =RequestMethod.GET )
+	public String invoiceUser(final ModelMap model, 
+			final HttpServletRequest request,
+			final HttpServletResponse response,
+			@PathVariable("id")int id) throws IOException{		
+		
+		SaleOrder saleOrder = saleOrderService.getById(id);		
+		model.addAttribute("saleOrder",saleOrder);
+		return "/admin/invoiceUser";
 	}
 	
 	@RequestMapping(value= {"/admin/order"}, method =RequestMethod.GET )

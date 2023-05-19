@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+       - 3307:3307
+    environment:
+      MYSQL_ROOT_PASSWORD: 654321
+      MYSQL_DATABASE: eclinic
+  clinic-management-system:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
