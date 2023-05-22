@@ -24,6 +24,7 @@ import edu.hanu.clinicManagementSystem.service.admin.AdminService;
 import edu.hanu.clinicManagementSystem.service.admin.UserService;
 
 @Controller
+
 public class UserController  extends BaseController{
 	@Autowired
 	private UserService userService;

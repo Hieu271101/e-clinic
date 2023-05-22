@@ -8,14 +8,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-//    @Bean
-//    public DataSource dataSource() {
-//        return DataSourceBuilder
-//            .create()
-//            .driverClassName("com.mysql.cj.jdbc.Driver")
-//            .url("jdbc:mysql://localhost:3306/eclinic?useSSL=false&serverTimezone=UTC")
-//            .username("root")
-//            .password("")
-//            .build();
-//    }
+    @Bean
+    public DataSource dataSource() {
+        return DataSourceBuilder
+            .create()
+            .driverClassName("com.mysql.cj.jdbc.Driver")
+            .url("jdbc:mysql://localhost:3306/eclinic?useSSL=false&serverTimezone=UTC")
+            .username("root")
+            .password("")
+            .build();
+    }
 }

@@ -50,3 +50,85 @@ public class TestController extends BaseController{
 	
 
 }
+
+//<distributionManagement>
+//<downloadUrl>http://java.sun.com/products/jsp/jstl/downloads/</downloadUrl>
+//<relocation>
+//<groupId>javax.servlet</groupId>
+//<artifactId>jstl</artifactId>
+//<version>1.1.2</version>
+//</relocation>
+//</distributionManagement>
+//  <build>
+//    <finalName>clinicManamentSystem</finalName>
+//    <plugins>
+//    
+//        <plugin>
+//		    <groupId>org.springframework.boot</groupId>
+//		    <artifactId>spring-boot-maven-plugin</artifactId>
+//		    
+//		    <configuration>
+//		        <mainClass>edu.hanu.clinicManagementSystem.StartClinicManagementSystem</mainClass> 
+//		    </configuration>
+//		    <executions>
+//		        <execution>
+//		            <goals>
+//		                <goal>repackage</goal>
+//		            </goals>
+//		           
+//		            <configuration>
+//		                <archive>
+//		                    <manifest>
+//		                        <mainClass>edu.hanu.clinicManagementSystem.StartClinicManagementSystem</mainClass>
+//		                    </manifest>
+//		                </archive>
+//		            </configuration>
+//		        </execution>
+//		    </executions>
+//	</plugin>
+//	 <plugin>
+//            <groupId>org.apache.maven.plugins</groupId>
+//            <artifactId>maven-jar-plugin</artifactId>
+//          
+//               <configuration>
+//                <packagingExcludes>WEB-INF/views/**/*.jsp</packagingExcludes>
+//                <archive>
+//                    <addMavenDescriptor>false</addMavenDescriptor>
+//                </archive>
+//            </configuration>
+//        </plugin>
+//          <plugin>
+//            <groupId>org.apache.maven.plugins</groupId>
+//            <artifactId>maven-war-plugin</artifactId>
+//           
+//            <configuration>
+//                <failOnMissingWebXml>false</failOnMissingWebXml>
+//                <archive>
+//                    <manifest>
+//                        <addClasspath>true</addClasspath>
+//                    </manifest>
+//                </archive>
+//            </configuration>
+//        </plugin>
+//        
+//    </plugins>
+//    <resources>
+//        <resource>
+//            <directory>src/main/webapp</directory>
+//            <targetPath>META-INF/resources</targetPath>
+//            <includes>
+//                <include>**/*.jsp</include>
+//            </includes>
+//        </resource>
+//         <resource>
+//            <directory>src/main/resources</directory>
+//            <includes>
+//                <include>**/*.properties</include> <!-- Include specific file types if needed -->
+//                <include>**/*.css</include>
+//                <include>**/*.js</include>
+//            </includes>
+//        </resource>
+//    </resources>
+//    
+//</build>
+

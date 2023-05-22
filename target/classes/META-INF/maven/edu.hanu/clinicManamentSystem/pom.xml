@@ -12,7 +12,10 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.4.RELEASE</version>
 	</parent>
+	
   <dependencies>
+		    
+		   
   		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -85,47 +88,6 @@
 			<artifactId>spring-security-taglibs</artifactId>
 		</dependency>
   </dependencies>
-  <build>
-    <finalName>clinicManamentSystem</finalName>
-    <plugins>
-    
-        <plugin>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-maven-plugin</artifactId>
-		    
-		    <configuration>
-		        <mainClass>edu.hanu.clinicManagementSystem.StartClinicManagementSystem</mainClass> 
-		    </configuration>
-		    <executions>
-		        <execution>
-		            <goals>
-		                <goal>repackage</goal>
-		            </goals>
-		           
-		            <configuration>
-		                <archive>
-		                    <manifest>
-		                        <mainClass>edu.hanu.clinicManagementSystem.StartClinicManagementSystem</mainClass>
-		                    </manifest>
-		                </archive>
-		            </configuration>
-		        </execution>
-		    </executions>
-	</plugin>
-
-        
-    </plugins>
-    <resources>
-        <resource>
-            <directory>src/main/webapp</directory>
-            <targetPath>META-INF/resources</targetPath>
-            <includes>
-                <include>**/*.jsp</include>
-            </includes>
-        </resource>
-    </resources>
-    
-</build>
-
+  
   
 </project>

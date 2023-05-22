@@ -1,12 +1,16 @@
 package edu.hanu.clinicManagementSystem.controllers.user;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.hanu.clinicManagementSystem.controllers.BaseController;
 
 @Controller
+@EnableAutoConfiguration
 public class HomePageController extends BaseController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index() {
@@ -42,5 +46,10 @@ public class HomePageController extends BaseController {
 	public String timeTable() {
 		
 		return "user/timeTable";
+	}
+	@RequestMapping("tester")
+	@ResponseBody
+	public String testerr() {
+		return "Hello, I'm here";
 	}
 }
