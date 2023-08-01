@@ -47,21 +47,21 @@ public class UserService extends BaseService<User> {
 	@Transactional
 	public User add(User p, MultipartFile productAvatar, MultipartFile[] productPictures) throws IllegalStateException, IOException {
 	    // Check if an avatar was uploaded
-	    if (!isEmptyUploadFile(productAvatar)) {
-	        String fileName = getUniqueUploadFileName(productAvatar.getOriginalFilename());
-	        // Specify the path to the folder where the avatar will be saved
-	        String pathToAvatar = "C:/upload/product/avatar/" + fileName;
-
-	        // Check if the folder exists, and create it if it doesn't
-	        File folder = new File("C:/upload/product/avatar/");
-	        if (!folder.exists()) {
-	            folder.mkdirs();
-	        }
-
-	        // Save the avatar to the specified path
-	        productAvatar.transferTo(new File(pathToAvatar));
-	        p.setImg("product/avatar/" + fileName);
-	    }
+//	    if (!isEmptyUploadFile(productAvatar)) {
+//	        String fileName = getUniqueUploadFileName(productAvatar.getOriginalFilename());
+//	        // Specify the path to the folder where the avatar will be saved
+//	        String pathToAvatar = "C:/upload/product/avatar/" + fileName;
+//
+//	        // Check if the folder exists, and create it if it doesn't
+//	        File folder = new File("C:/upload/product/avatar/");
+//	        if (!folder.exists()) {
+//	            folder.mkdirs();
+//	        }
+//
+//	        // Save the avatar to the specified path
+//	        productAvatar.transferTo(new File(pathToAvatar));
+//	        p.setImg("product/avatar/" + fileName);
+//	    }
 	    // Save the user to the database
 	    return super.saveOrUpdate(p);
 	}
@@ -72,29 +72,29 @@ public class UserService extends BaseService<User> {
 	    UserImagesService productImagesService = new UserImagesService();
 
 	    // lấy thông tin cũ của product theo id
-	    User productInDb = super.getById(p.getId());
-
-	    // có đẩy avartar ??? => xóa avatar cũ đi và thêm avatar mới
-	    if (!isEmptyUploadFile(productAvatar)) {
-	        // xóa avatar trong folder lên
-	        new File("C:/upload/" + productInDb.getImg()).delete();
-
-	        // update avatar mới
-	        String fileName = getUniqueUploadFileName(productAvatar.getOriginalFilename());
-
-	        // Tạo thư mục lưu trữ nếu nó không tồn tại
-	        File folder = new File("C:/upload/product/avatar/");
-	        if (!folder.exists()) {
-	            folder.mkdirs();
-	        }
-
-	        // Lưu avatar vào thư mục lưu trữ
-	        productAvatar.transferTo(new File("C:/upload/product/avatar/" + fileName));
-	        p.setImg("product/avatar/" + fileName);
-	    } else {
-	        // sử dụng lại avartar cũ
-	        p.setImg(productInDb.getImg());
-	    }
+//	    User productInDb = super.getById(p.getId());
+//
+//	    // có đẩy avartar ??? => xóa avatar cũ đi và thêm avatar mới
+//	    if (!isEmptyUploadFile(productAvatar)) {
+//	        // xóa avatar trong folder lên
+//	        new File("C:/upload/" + productInDb.getImg()).delete();
+//
+//	        // update avatar mới
+//	        String fileName = getUniqueUploadFileName(productAvatar.getOriginalFilename());
+//
+//	        // Tạo thư mục lưu trữ nếu nó không tồn tại
+//	        File folder = new File("C:/upload/product/avatar/");
+//	        if (!folder.exists()) {
+//	            folder.mkdirs();
+//	        }
+//
+//	        // Lưu avatar vào thư mục lưu trữ
+//	        productAvatar.transferTo(new File("C:/upload/product/avatar/" + fileName));
+//	        p.setImg("product/avatar/" + fileName);
+//	    } else {
+//	        // sử dụng lại avartar cũ
+//	        p.setImg(productInDb.getImg());
+//	    }
 
 	    return super.saveOrUpdate(p);
 	}
