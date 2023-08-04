@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+
 
 import edu.hanu.clinicManagementSystem.controllers.BaseController;
 import edu.hanu.clinicManagementSystem.dto.user.SaleOrder;
@@ -99,19 +99,18 @@ public class AdminManageUserController extends BaseController {
 	@RequestMapping(value= {"/admin/addUser"}, method =RequestMethod.POST )
 	public String addUserPOST(final ModelMap model, final HttpServletRequest request, 
 			final HttpServletResponse response,
-			@ModelAttribute("newUser") User user,		
-			@RequestParam("productAvatar") MultipartFile productAvatar,
-			@RequestParam("productPictures") MultipartFile[] productPictures) throws IOException{		
+			@ModelAttribute("newUser") User user
+			
+			) throws IOException{		
 
 		if (user.getId() == null || user.getId() <= 0) {
 			
-			userService.add(user, productAvatar, productPictures);
-
+			userService.saveOrUpdate(user);
 		}
 		// chỉnh sửa
 		else
 		{ 
-			userService.update(user,productAvatar,productPictures);
+			userService.saveOrUpdate(user);
 
 		}
 	
@@ -121,16 +120,16 @@ public class AdminManageUserController extends BaseController {
 	@RequestMapping(value= {"/admin/editUser"}, method =RequestMethod.POST )
 	public String editUserPOST(final ModelMap model, final HttpServletRequest request, 
 			final HttpServletResponse response,
-			@ModelAttribute("newUser") User user,		
-			@RequestParam("productAvatar") MultipartFile productAvatar,
-			@RequestParam("productPictures") MultipartFile[] productPictures) throws IOException{		
+			@ModelAttribute("newUser") User user	
+		
+		) throws IOException{		
 
 		
 		if (user.getId() == null || user.getId() <= 0) {
 			User userInDbs = userService.getById(user.getId());
 //			user.setUsername(userInDbs.getUsername());
 //			user.setPassword(userInDbs.getPassword());
-			userService.add(user, productAvatar, productPictures);
+			userService.saveOrUpdate(user);
 			
 		}
 		// chỉnh sửa
@@ -139,7 +138,7 @@ public class AdminManageUserController extends BaseController {
 			User userInDbs = userService.getById(user.getId());
 //			user.setUsername(userInDbs.getUsername());
 //			user.setPassword(userInDbs.getPassword());
-			userService.update(user,productAvatar,productPictures);
+			userService.saveOrUpdate(user);
 
 		}
 	

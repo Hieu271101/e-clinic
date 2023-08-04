@@ -8,14 +8,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EnableAutoConfiguration
-@ComponentScan(basePackages = { "edu.hanu.clinicManagementSystem"})
-public class StartClinicManagementSystem extends SpringBootServletInitializer {
+public class StartClinicManagementSystem {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(StartClinicManagementSystem.class);
-	}
 
 	public static void main(String[] args) {
 		System.out.println("Start eclinic Management System");

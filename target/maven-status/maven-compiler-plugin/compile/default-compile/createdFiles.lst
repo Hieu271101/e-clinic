@@ -27,7 +27,6 @@ edu\hanu\clinicManagementSystem\service\admin\AdminService.class
 edu\hanu\clinicManagementSystem\entities\test\Cart.class
 edu\hanu\clinicManagementSystem\entities\admin\OrderEntity.class
 edu\hanu\clinicManagementSystem\entities\admin\UserImages.class
-edu\hanu\clinicManagementSystem\conf\AppConfig.class
 edu\hanu\clinicManagementSystem\service\user\AccountDetailServiceImpl.class
 edu\hanu\clinicManagementSystem\controllers\admin\AdminManageAccount.class
 edu\hanu\clinicManagementSystem\StartClinicManagementSystem.class
