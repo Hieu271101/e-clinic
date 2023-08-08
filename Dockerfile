@@ -8,4 +8,5 @@ WORKDIR /app
 COPY . .
 
 # Build the Maven project and run the Spring Boot application
+RUN mvn clean install
 CMD ["mvn", "spring-boot:run"]
