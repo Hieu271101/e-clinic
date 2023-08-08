@@ -45,7 +45,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12">
                 <div class="inner-content clearfix">
                     <div class="header-style1-logo float-left">
-                        <a href="index-2.html">
+                        <a href="/">
                             <img src="${base }/user/images/brand/zyro-image (1).png" alt="Awesome Logo" style="width:150px;height:150px;">
                         </a>
                     </div>   
@@ -78,9 +78,9 @@
                     <div class="header-style1-button float-right">
                         <a href="${base }/login">Đăng nhập</a>
                     </div>
-                    <!-- <div class="header-style1-button float-right">
-                        <a href="apppointment.html"><span class="icon-date"></span>Tạo lịch hẹn</a>
-                    </div> -->
+                     <div style="margin-right: 10px" class="header-style1-button float-right">
+                        <a href="/appoinment"><span class="icon-date"></span>Tạo lịch hẹn</a>
+                    </div> 
                      
                 </div>
             </div>

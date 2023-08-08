@@ -91,8 +91,7 @@ public class AdminManageAccount  extends BaseController {
 										  final HttpServletResponse response, 
 										  @ModelAttribute("newAccount") Admin admin
 
-										  ,@RequestParam("productAvatar") MultipartFile productAvatar
-										  ,@RequestParam("productPictures") MultipartFile[] productAvatars
+										 
 	) throws Exception {
 		
 //		adminService.saveOrUpdate(admin);
@@ -108,8 +107,8 @@ public class AdminManageAccount  extends BaseController {
 			admin.setCreatedDate(date);
 			admin.setPassword(new BCryptPasswordEncoder(4).encode(admin.getPassword()));
 			//add user vào database
-			adminService.add(admin, productAvatar, productAvatars);
-			
+//			adminService.add(admin, productAvatar, productAvatars);
+			adminService.saveOrUpdate(admin);
 			
 //			User userInDbs=userService.getById(newAccount.getId());
 //			Role role=roleService.getById(2);

@@ -123,18 +123,14 @@
                                         </select>
                                         </div>
                             </div> -->
-                             <div class="form-group row">
+                            <!--  <div class="form-group row">
                             		 <label class="col-sm-2 col-form-label">Avatar</label>
                            			 <div class="col-sm-10">
 									 <input id="fileProductAvatar"  name="productAvatar"  accept="image/*"  type="file" class="form-control">
 								<br>
-								<%-- <div class="form-group">
-
-									<img alt="" style="width: 100px; height: 100px"
-										src="${base }/upload/${newUser.img}">
-								</div> --%>
+								
 							</div>
-							</div>
+							</div> -->
                             
                              <div class="form-group row">
                                 <div class="col-sm-12 ml-sm-auto">

@@ -148,10 +148,7 @@
 					 containsAlphabet: true,
 					required : !0
 				},
-				email : {
-					
-					email : !0
-				},
+				
 				phone : {
 					required : !0,
 					

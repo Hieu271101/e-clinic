@@ -167,10 +167,7 @@
 					minlength : 2,
 					required : !0
 				},
-				email : {
-					required : !0,
-					email : !0
-				},
+				
 				url : {
 					required : !0,
 					url : !0
